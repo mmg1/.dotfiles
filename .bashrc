@@ -140,9 +140,6 @@ export PYTHONPATH=$HOME/Documents/Number-Theory-Python-master/:$PYTHONPATH
 export PATH=$PATH:/home/florian/Documents/IvacyOpenVPN-Configs
 export ATHAME_SHOW_MODE=0
 
-# default keyboard layout
-setxkbmap eu
-
 # start tmux if (1) tmux exists, (2) we're in an interactive shell, (3) tmux doesn't try to run within itself
 if command -v tmux &> /dev/null && [ -n "$PS1"  ] && [[ ! "$TERM" =~ screen  ]] && [[ ! "$TERM" =~ tmux  ]] && [ -z "$TMUX"  ]; then
       tmux kill-session -t 0
