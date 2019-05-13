@@ -109,6 +109,8 @@ alias l='ls -CF'
 alias _='sudo'
 alias _i='sudo -i'
 alias xcp='xclip -in -sel clipboard'
+alias gdbui='gdbtui --nx -q'
+alias pudb='python3 -m pudb'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -139,6 +141,7 @@ fi
 export PYTHONPATH=$HOME/Documents/Number-Theory-Python-master/:$PYTHONPATH
 export PATH=$PATH:/home/florian/Documents/IvacyOpenVPN-Configs
 export ATHAME_SHOW_MODE=0
+
 
 # start tmux if (1) tmux exists, (2) we're in an interactive shell, (3) tmux doesn't try to run within itself
 if command -v tmux &> /dev/null && [ -n "$PS1"  ] && [[ ! "$TERM" =~ screen  ]] && [[ ! "$TERM" =~ tmux  ]] && [ -z "$TMUX"  ]; then
