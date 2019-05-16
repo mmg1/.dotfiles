@@ -58,13 +58,6 @@ map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 let g:ycm_extra_conf_vim_data = ['&filetype']
 let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
 let g:ycm_show_diagnostics_ui = 0
-" let g:ycm_filetype_specific_completion_to_disable = {
-"       \   'c': 1,}
-" let g:clang_library_path='/usr/lib/llvm-7/lib/libclang.so.1'
-" let g:clang_user_options = '2> NUL || exit 0'
-" let g:clang_use_library = 1
-" let g:clang_complete_auto = 1
-" let g:clang_complete_copen = 1
 
 "split navigations
 nnoremap <C-J> <C-W><C-J>
