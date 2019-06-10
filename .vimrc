@@ -21,6 +21,8 @@ Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-eunuch'
 Plugin 'tpope/vim-obsession'
 Plugin 'tpope/vim-unimpaired'
+Plugin 'lervag/vimtex'
+Plugin 'xuhdev/vim-latex-live-preview'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -84,3 +86,5 @@ let g:syntastic_quiet_messages = { "level" : "warnings"  }
 " let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes':   [],'passive_filetypes': []  }
 noremap <C-w>e :SyntasticCheck<CR>
 noremap <C-w>f :SyntasticToggleMode<CR>
+
+let g:vim_markdown_math = 1
