@@ -87,4 +87,4 @@ let g:syntastic_quiet_messages = { "level" : "warnings"  }
 noremap <C-w>e :SyntasticCheck<CR>
 noremap <C-w>f :SyntasticToggleMode<CR>
 
-let g:vim_markdown_math = 1
+let g:livepreview_previewer = 'okular'
