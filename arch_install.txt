@@ -1,0 +1,19 @@
+Basic install
+nvidia
+xorg xorg-server
+lightdm
+qtile
+vim
+firefox
+add user florian
+yaourt
+clipboard manager
+
+vim config
+tmux
+tmux config
+athame
+keyboard setup
+ranger
+
+blackarch repo
