@@ -144,3 +144,5 @@ if command -v tmux &> /dev/null && [ -n "$PS1"  ] && [[ ! "$TERM" =~ screen  ]] 
       tmux kill-session -t 0
       exec tmux new -A -s main
 fi
+
+PATH=$PATH:/home/florian/010editor;export PATH; # ADDED BY INSTALLER - DO NOT EDIT OR DELETE THIS COMMENT - 87FF8EFC-483D-BCAA-D67D-735CF60410D1 D597B4B5-CACE-C01D-E652-6C52B37E44F8
