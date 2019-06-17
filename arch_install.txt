@@ -1,14 +1,20 @@
 Basic install
-add user florian (-g users -G sudo)
+add user florian (-m -g users -G sudo -p password)
+vim
 sudo/visudo
 nvidia
-xorg xorg-server
-xinit?
-lightdm
-python python3
+reboot
+
+dns,ens33.network,systemd-networkd
+xterm termite
+xorg xorg-server xorg-xinit
+gnome gnome-extra, gdm enable/start
 qtile
-vim
+reboot
+
+python python3
 firefox
+other software
 yaourt
 clipboard manager
 
