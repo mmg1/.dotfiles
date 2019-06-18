@@ -17,9 +17,9 @@ reboot
 i3 config
 python python3
 firefox
-dmenu rofi
-ifconfig apache ngingx youtube-dl wget transmission-cli transmission-gtk qbittorrent irssi hexchat eom/eog imagemagick gimp vlc subdl subdownloader mate-terminal tmux ranger caja perl-rename git cmake gdb gparted htop libreoffice-still vim-latexsuite calibre knotes clamav bc sagemath typespeed
-yaourt
+dmenu rofi xclip
+net-tools apache youtube-dl wget transmission-cli transmission-gtk qbittorrent irssi hexchat eom/eog imagemagick gimp vlc subdl subdownloader mate-terminal tmux ranger caja perl-rename git cmake gdb gparted htop libreoffice-still vim-latexsuite calibre knotes clamav bc sagemath typespeed
+yay
 discord skypeforlinux-stable-bin slack-desktop realvnc-vnc-server realvnc-vnc-viewer hyx zulucrypt etcher cherrytree
 clipboard manager gtypist tpgt
 
