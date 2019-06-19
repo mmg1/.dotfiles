@@ -11,6 +11,9 @@ xorg xorg-server xorg-xinit
 gnome gnome-extra, gdm enable/start
 ||
 kde, kdm enable/start
+
+(manjaro)
+(base-devel vim)
 i3
 reboot
 
@@ -20,8 +23,7 @@ firefox
 dmenu rofi xclip
 net-tools apache youtube-dl wget transmission-cli transmission-gtk qbittorrent irssi hexchat eom/eog imagemagick gimp vlc subdl subdownloader mate-terminal tmux ranger caja perl-rename git cmake gdb gparted htop libreoffice-still vim-latexsuite calibre knotes clamav bc sagemath typespeed
 yay
-discord skypeforlinux-stable-bin slack-desktop realvnc-vnc-server realvnc-vnc-viewer hyx zulucrypt etcher cherrytree gtypist tpgt
-gdb-multiarch arm-linux-gnueabi-gcc aarch64-linux-gnu-gcc 
+discord skypeforlinux-stable-bin slack-desktop realvnc-vnc-server realvnc-vnc-viewer hyx zulucrypt etcher cherrytree gtypist tpgt gdb-multiarch arm-linux-gnueabi-gcc aarch64-linux-gnu-gcc 
 binutils pwntools arm/aarch64/mips
 pwntools
 
