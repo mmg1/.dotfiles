@@ -31,13 +31,13 @@ fi
 # STAGE 2
 if [[ $stage == 2 ]]
 then
-    sudo pacman -S net-tools apache youtube-dl wget transmission-cli transmission-gtk qbittorrent irssi hexchat imagemagick gimp vlc subdl subdownloader mate-terminal tmux ranger caja perl-rename git cmake gdb gparted htop libreoffice-still vim-latexsuite calibre knotes clamav bc sagemath typespeed mlocate
-    echo "Next?"; read ok
-    sudo pacman -S yay
-    echo "Next?"; read ok
+    #sudo pacman -S net-tools apache youtube-dl wget transmission-cli transmission-gtk qbittorrent irssi hexchat imagemagick gimp vlc subdl subdownloader mate-terminal tmux ranger caja perl-rename git cmake gdb gparted htop libreoffice-still vim-latexsuite calibre knotes clamav bc sagemath typespeed mlocate
+    #echo "Next?"; read ok
+    #sudo pacman -S yay
+    #echo "Next?"; read ok
     yay -S discord skypeforlinux-stable-bin slack-desktop realvnc-vnc-server realvnc-vnc-viewer hyx zulucrypt etcher cherrytree gtypist tpgt gdb-multiarch arm-linux-gnueabi-gcc aarch64-linux-gnu-gcc 
     echo "Next?"; read ok
-    sudo mhwd-kernel -i linux5rt
+    sudo mhwd-kernel -i linux50-rt
     echo "Installed kernels:"
     mhwd-kernel -li
     echo "Reboot now"
