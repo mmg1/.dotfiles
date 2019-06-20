@@ -1,10 +1,11 @@
 #!/bin/bash
 
 stage=$1
-cur=~/.dotfiles
+cur=/home/florian/.dotfiles
+home_florian=/home/florian
 
 # Basic install (encryption?)
-# add user florian (-m -g users -G sudo -p password)
+# add user florian (-m -g users -G -p password)
 # vim
 # sudo/visudo
 # nvidia
@@ -20,24 +21,24 @@ cur=~/.dotfiles
 # STAGE 1
 if [[ $stage == 1 ]]
 then
-    sudo pacman -Syyu
-    sudo pacman -S base-devel vim
-    sudo pacman -S i3 dmenu xclip
+    pacman --noconfirm -Syyu
+    pacman --noconfirm -S base-devel vim
+    pacman --noconfirm -S i3 dmenu xclip
     mkdir -p ~/.config/i3
     cp $cur/i3_config ~/.config/i3/config
-    sudo reboot now
+    reboot now
 fi
 
 # STAGE 2
 if [[ $stage == 2 ]]
 then
-    #sudo pacman -S net-tools apache youtube-dl wget transmission-cli transmission-gtk qbittorrent irssi hexchat imagemagick gimp vlc subdl subdownloader mate-terminal tmux ranger caja perl-rename git cmake gdb gparted htop libreoffice-still vim-latexsuite calibre knotes clamav bc sagemath typespeed mlocate
-    #echo "Next?"; read ok
-    #sudo pacman -S yay
-    #echo "Next?"; read ok
-    yay -S discord skypeforlinux-stable-bin slack-desktop realvnc-vnc-server realvnc-vnc-viewer hyx zulucrypt etcher cherrytree gtypist tpgt gdb-multiarch arm-linux-gnueabi-gcc aarch64-linux-gnu-gcc 
+    pacman --noconfirm -S net-tools apache youtube-dl wget transmission-cli transmission-gtk qbittorrent irssi hexchat imagemagick gimp vlc subdl subdownloader mate-terminal tmux ranger caja perl-rename git cmake gdb gparted htop libreoffice-still vim-latexsuite calibre knotes clamav bc sagemath typespeed mlocate
     echo "Next?"; read ok
-    sudo mhwd-kernel -i linux50-rt
+    pacman --noconfirm -S yay --noconfirm
+    echo "Next?"; read ok
+    sudo -u florian yay --noconfirm -S discord skypeforlinux-stable-bin slack-desktop realvnc-vnc-viewer hyx zulucrypt etcher cherrytree gtypist tpgt gdb-multiarch arm-linux-gnueabi-gcc aarch64-linux-gnu-gcc 
+    echo "Next?"; read ok
+    mhwd-kernel -i linux50-rt
     echo "Installed kernels:"
     mhwd-kernel -li
     echo "Reboot now"
@@ -55,38 +56,40 @@ then
     fi
     # vmware
     chmod +x $cur/*.bundle
-    sudo $cur/*.bundle
+    $cur/*.bundle
     echo "Next?"; read ok
     # pwntools
-    sudo pacman -S python-pip
+    pacman --noconfirm -S python2-pip
     echo "Next?"; read ok
-    sudo pip2 install pwntools
+    pip2 install pwntools
     echo "Next?"; read ok
-    sudo pacman -S python-pip3
+    pacman --noconfirm -S python-pip
     echo "Next?"; read ok
-    sudo pip3 install --upgrade git+https://github.com/arthaud/python3-pwntools.git
+    pip3 install --upgrade git+https://github.com/arthaud/python3-pwntools.git
     echo "Next?"; read ok
     $cur/binutils.sh arm
     echo "Next?"; read ok
-    rm /tmp/binutils-build/*/config-cache
+    rm /tmp/binutils-build/*/config.cache
     $cur/binutils.sh aarch64
     echo "Next?"; read ok
-    rm /tmp/binutils-build/*/config-cache
+    rm /tmp/binutils-build/*/config.cache
     $cur/binutils.sh mips
+    rm /tmp/binutils-build/*/config.cache
     echo "Next?"; read ok
     # .vimrc
-    cp $cur/.vimrc ~/.vimrc
-    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+    cp $cur/.vimrc $home_florian/.vimrc
+    git clone https://github.com/VundleVim/Vundle.vim.git $home_florian/.vim/bundle/Vundle.vim
     vim +PluginInstall +qall
     echo "Next?"; read ok
-    ~/.vim/bundle/YouCompleteMe/install.py --clangd-completer 
+    $home_florian/.vim/bundle/YouCompleteMe/install.py --clangd-completer 
     echo "Next?"; read ok
-    cp $cur/.ycm_extra_conf.py ~/.vim/.ycm_extra_conf.py
+    cp $cur/.ycm_extra_conf.py $home_florian/.vim/.ycm_extra_conf.py
     # .tmux.conf
-    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-    cp $cur/.tmux.conf ~/.tmux.conf
+    git clone https://github.com/tmux-plugins/tpm $home_florian/.tmux/plugins/tpm
+    git clone https://github.com/jimeh/tmux-themepack.git $home_florian/.tmux-themepack
+    cp $cur/.tmux.conf $home_florian/.tmux.conf
     # athame
-    yay -S athame-readline-git
+    sudo -u florian yay --noconfirm -S readline-athame-git
     echo "Reboot now"
 fi
 
@@ -94,14 +97,16 @@ fi
 if [[ $stage == 4 ]]
 then
     # .bashrc
-    rm ~/.bashrc
-    cp $cur/.bashrc_arch ~/.bashrc
-    cp $cur/.bashaliases ~/.bashaliases
-    source ~/.bashrc
+    rm $home_florian/.bashrc
+    cp $cur/.bashrc_arch $home_florian/.bashrc
+    cp $cur/.bashaliases $home_florian/.bashaliases
+    sudo -u florian source $home_florian/.bashrc
     # blackarch repo
-    curl -O https://blackarch.org/strap.sh
-    sudo ./strap.sh
-    sudo pacman -Syyu
-    sudo pacman -S blackarch
+    wget https://blackarch.org/strap.sh -O $cur/strap.sh
+    chmod +x $cur/strap.sh
+    $cur/strap.sh
+    pacman -Syyu
+    # pacman -S blackarch
+    pacman -S realvnc-vnc-server
     # keyboard setup
 fi
