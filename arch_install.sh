@@ -19,7 +19,7 @@ cur=~/.dotfiles
 sudo pacman -Syyu
 sudo pacman -S base-devel vim
 sudo pacman -S i3 dmenu xclip
-reboot
+sudo reboot now
 
 # STAGE 2
 cp $cur/i3_config ~/.config/i3/config
@@ -28,14 +28,17 @@ sudo pacman -S firefox
 sudo pacman -S net-tools apache youtube-dl wget transmission-cli transmission-gtk qbittorrent irssi hexchat imagemagick gimp vlc subdl subdownloader mate-terminal tmux ranger caja perl-rename git cmake gdb gparted htop libreoffice-still vim-latexsuite calibre knotes clamav bc sagemath typespeed mlocate
 sudo pacman -S yay
 yay -S discord skypeforlinux-stable-bin slack-desktop realvnc-vnc-server realvnc-vnc-viewer hyx zulucrypt etcher cherrytree gtypist tpgt gdb-multiarch arm-linux-gnueabi-gcc aarch64-linux-gnu-gcc 
-kernel linux5rt
+sudo mhwd-kernel -i linux5rt
+sudo reboot now
 
 # STAGE 2.5
 # download vmware-installer from https://www.vmware.com/products/workstation-pro/workstation-pro-evaluation.html
 
 # STAGE 3
+# vmware
 chmod +x $cur/*.bundle
 $cur/*.bundle
+# pwntools
 sudo pacman -S python-pip
 sudo pip2 install pwntools
 sudo pacman -S python-pip3
@@ -45,17 +48,26 @@ rm /tmp/binutils-build/*/config-cache
 $cur/binutils.sh aarch64
 rm /tmp/binutils-build/*/config-cache
 $cur/binutils.sh mips
+# .vimrc
 cp $cur/.vimrc ~/.vimrc
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +PluginInstall +qall
 ~/.vim/bundle/YouCompleteMe/install.py --clangd-completer 
 cp $cur/.ycm_extra_conf.py ~/.vim/.ycm_extra_conf.py
+# .tmux.conf
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 cp $cur/.tmux.conf ~/.tmux.conf
+# athame
 yay -S athame-readline-git
+sudo reboot now
+
+# STAGE 4
+# .bashrc
+rm ~/.bashrc
 cp $cur/.bashrc_arch ~/.bashrc
+cp $cur/.bashaliases ~/.bashaliases
 source ~/.bashrc
-blackarch repo
+# blackarch repo
 curl -O https://blackarch.org/strap.sh
 sudo ./strap.sh
 sudo pacman -Syyu
