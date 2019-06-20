@@ -24,9 +24,11 @@ firefox
 net-tools apache youtube-dl wget transmission-cli transmission-gtk qbittorrent irssi hexchat imagemagick gimp vlc subdl subdownloader mate-terminal tmux ranger caja perl-rename git cmake gdb gparted htop libreoffice-still vim-latexsuite calibre knotes clamav bc sagemath typespeed
 yay
 discord skypeforlinux-stable-bin slack-desktop realvnc-vnc-server realvnc-vnc-viewer hyx zulucrypt etcher cherrytree gtypist tpgt gdb-multiarch arm-linux-gnueabi-gcc aarch64-linux-gnu-gcc 
-binutils pwntools arm/aarch64/mips
+kernel 5rt
 vmware-workstation
-pwntools
+pwntools 2 (pip2)
+pwntools 3 (pip3 from github)
+binutils arm/aarch64/mips (rm /tmp/binutils-build/*/config-cache)
 
 vim config
 tmux config
