@@ -32,13 +32,17 @@ then
     mkdir -p ~/.config/i3
     cp $cur/i3_config ~/.config/i3/config
     sudo pacman -S python python3
+    echo "Next?"; read ok
     sudo pacman -S firefox
+    echo "Next?"; read ok
     sudo pacman -S net-tools apache youtube-dl wget transmission-cli transmission-gtk qbittorrent irssi hexchat imagemagick gimp vlc subdl subdownloader mate-terminal tmux ranger caja perl-rename git cmake gdb gparted htop libreoffice-still vim-latexsuite calibre knotes clamav bc sagemath typespeed mlocate
+    echo "Next?"; read ok
     sudo pacman -S yay
+    echo "Next?"; read ok
     yay -S discord skypeforlinux-stable-bin slack-desktop realvnc-vnc-server realvnc-vnc-viewer hyx zulucrypt etcher cherrytree gtypist tpgt gdb-multiarch arm-linux-gnueabi-gcc aarch64-linux-gnu-gcc 
+    echo "Next?"; read ok
     sudo mhwd-kernel -i linux5rt
-    echo "After reboot, download vmware-installer from https://www.vmware.com/products/workstation-pro/workstation-pro-evaluation.html"
-    sudo reboot now
+    echo "Reboot now"
 fi
 
 # STAGE 2.5
@@ -55,29 +59,39 @@ then
     fi
     # vmware
     chmod +x $cur/*.bundle
-    $cur/*.bundle
+    sudo $cur/*.bundle
+    echo "Next?"; read ok
     # pwntools
     sudo pacman -S python-pip
+    echo "Next?"; read ok
     sudo pip2 install pwntools
+    echo "Next?"; read ok
     sudo pacman -S python-pip3
+    echo "Next?"; read ok
     sudo pip3 install --upgrade git+https://github.com/arthaud/python3-pwntools.git
+    echo "Next?"; read ok
     $cur/binutils.sh arm
+    echo "Next?"; read ok
     rm /tmp/binutils-build/*/config-cache
     $cur/binutils.sh aarch64
+    echo "Next?"; read ok
     rm /tmp/binutils-build/*/config-cache
     $cur/binutils.sh mips
+    echo "Next?"; read ok
     # .vimrc
     cp $cur/.vimrc ~/.vimrc
     git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
     vim +PluginInstall +qall
+    echo "Next?"; read ok
     ~/.vim/bundle/YouCompleteMe/install.py --clangd-completer 
+    echo "Next?"; read ok
     cp $cur/.ycm_extra_conf.py ~/.vim/.ycm_extra_conf.py
     # .tmux.conf
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
     cp $cur/.tmux.conf ~/.tmux.conf
     # athame
     yay -S athame-readline-git
-    sudo reboot now
+    echo "Reboot now"
 fi
 
 # STAGE 4
