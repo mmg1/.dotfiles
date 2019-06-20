@@ -1,8 +1,8 @@
 #!/bin/bash
 
-if [[ -e current_stage ]]
+if [[ -e $home_florian/current_stage ]]
 then
-    stage=$(cat current_stage)
+    stage=$(cat $home_florian/current_stage)
 else
     stage=0
 fi
@@ -14,7 +14,7 @@ home_florian=/home/florian
 if [[ $stage == 0 ]]
 then
     echo "git clone https://github.com/arty-hlr/.dotfiles.git"
-    echo -n 1 > current_stage
+    echo -n 1 > $home_florian/current_stage
     exit
 fi
 
@@ -24,9 +24,9 @@ then
     pacman --noconfirm -Syyu
     pacman --noconfirm -S base-devel vim
     pacman --noconfirm -S i3 dmenu xclip
-    mkdir -p ~/.config/i3
-    cp $cur/i3_config ~/.config/i3/config
-    echo -n 2 > current_stage
+    mkdir -p $home_florian/.config/i3
+    cp $cur/i3_config $home_florian/.config/i3/config
+    echo -n 2 > $home_florian/current_stage
     reboot now
 fi
 
@@ -40,7 +40,7 @@ then
     sudo -u florian yay --noconfirm -S discord skypeforlinux-stable-bin slack-desktop realvnc-vnc-viewer hyx zulucrypt etcher cherrytree gtypist tpgt gdb-multiarch arm-linux-gnueabi-gcc aarch64-linux-gnu-gcc 
     # echo "Next?"; read ok
     mhwd-kernel -i linux50-rt
-    echo -n 3 > current_stage
+    echo -n 3 > $home_florian/current_stage
     reboot now
 fi
 
@@ -48,7 +48,7 @@ fi
 if [[ $stage == 3 ]]
 then
     echo "Download vmware-installer from https://www.vmware.com/products/workstation-pro/workstation-pro-evaluation.html"
-    echo -n 4 > current_stage
+    echo -n 4 > $home_florian/current_stage
     exit
 fi
 
@@ -91,7 +91,7 @@ then
     cp $cur/.tmux.conf $home_florian/.tmux.conf
     # athame
     sudo -u florian yay --noconfirm -S readline-athame-git
-    echo -n 5 > current_stage
+    echo -n 5 > $home_florian/current_stage
     reboot now
 fi
 
