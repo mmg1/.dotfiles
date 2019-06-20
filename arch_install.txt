@@ -21,7 +21,7 @@ reboot
 i3 config
 python python3
 firefox
-net-tools apache youtube-dl wget transmission-cli transmission-gtk qbittorrent irssi hexchat imagemagick gimp vlc subdl subdownloader mate-terminal tmux ranger caja perl-rename git cmake gdb gparted htop libreoffice-still vim-latexsuite calibre knotes clamav bc sagemath typespeed
+net-tools apache youtube-dl wget transmission-cli transmission-gtk qbittorrent irssi hexchat imagemagick gimp vlc subdl subdownloader mate-terminal tmux ranger caja perl-rename git cmake gdb gparted htop libreoffice-still vim-latexsuite calibre knotes clamav bc sagemath typespeed mlocate
 yay
 discord skypeforlinux-stable-bin slack-desktop realvnc-vnc-server realvnc-vnc-viewer hyx zulucrypt etcher cherrytree gtypist tpgt gdb-multiarch arm-linux-gnueabi-gcc aarch64-linux-gnu-gcc 
 kernel 5rt
@@ -30,7 +30,12 @@ pwntools 2 (pip2)
 pwntools 3 (pip3 from github)
 binutils arm/aarch64/mips (rm /tmp/binutils-build/*/config-cache)
 
-vim config
+.bashrc (remove debian chroot line, comment athame,tmux,number-theory)
+.vimrc
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+vim +PluginInstall +qall
+YCM install.py --clangd-completer 
+.ycm_extra_conf.py
 tmux config
 athame
 keyboard setup
