@@ -29,6 +29,7 @@ fi
 # STAGE 2
 if [[ $stage == 2 ]]
 then
+    mkdir -p ~/.config/i3
     cp $cur/i3_config ~/.config/i3/config
     sudo pacman -S python python3
     sudo pacman -S firefox
