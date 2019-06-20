@@ -23,14 +23,14 @@ then
     sudo pacman -Syyu
     sudo pacman -S base-devel vim
     sudo pacman -S i3 dmenu xclip
+    mkdir -p ~/.config/i3
+    cp $cur/i3_config ~/.config/i3/config
     sudo reboot now
 fi
 
 # STAGE 2
 if [[ $stage == 2 ]]
 then
-    mkdir -p ~/.config/i3
-    cp $cur/i3_config ~/.config/i3/config
     sudo pacman -S python python3
     echo "Next?"; read ok
     sudo pacman -S firefox
@@ -46,8 +46,6 @@ then
     mhwd-kernel -li
     echo "Reboot now"
 fi
-
-# STAGE 2.5
 
 # STAGE 3
 if [[ $stage == 3 ]]
