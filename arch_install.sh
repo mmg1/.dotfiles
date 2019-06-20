@@ -42,6 +42,8 @@ then
     yay -S discord skypeforlinux-stable-bin slack-desktop realvnc-vnc-server realvnc-vnc-viewer hyx zulucrypt etcher cherrytree gtypist tpgt gdb-multiarch arm-linux-gnueabi-gcc aarch64-linux-gnu-gcc 
     echo "Next?"; read ok
     sudo mhwd-kernel -i linux5rt
+    echo "Installed kernels:"
+    mhwd-kernel -li
     echo "Reboot now"
 fi
 
