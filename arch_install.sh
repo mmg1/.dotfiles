@@ -1,5 +1,11 @@
 #!/bin/bash
 
+if [[ $EUID -ne 0 ]]
+then
+    echo "Please run as root"
+    exit
+fi
+
 cur=/home/florian/.dotfiles
 home_florian=/home/florian
 
