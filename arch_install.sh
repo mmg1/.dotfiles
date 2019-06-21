@@ -84,7 +84,7 @@ then
     git clone https://github.com/jimeh/tmux-themepack.git $home_florian/.tmux-themepack
     cp $cur/.tmux.conf $home_florian/.tmux.conf
     # athame
-    sudo -u florian yay --noconfirm -S readline-athame-git
+    sudo -u florian yay -S readline-athame-git
     echo -n 5 > $home_florian/current_stage
     echo "Reboot now"
 fi
