@@ -1,14 +1,14 @@
 #!/bin/bash
 
+cur=/home/florian/.dotfiles
+home_florian=/home/florian
+
 if [[ -e $home_florian/current_stage ]]
 then
     stage=$(cat $home_florian/current_stage)
 else
     stage=0
 fi
-
-cur=/home/florian/.dotfiles
-home_florian=/home/florian
 
 # STAGE 0
 if [[ $stage == 0 ]]
