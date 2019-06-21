@@ -27,7 +27,7 @@ then
     mkdir -p $home_florian/.config/i3
     cp $cur/i3_config $home_florian/.config/i3/config
     echo -n 2 > $home_florian/current_stage
-    reboot now
+    echo "Reboot now"
 fi
 
 # STAGE 2
@@ -41,7 +41,7 @@ then
     # echo "Next?"; read ok
     mhwd-kernel -i linux50-rt
     echo -n 3 > $home_florian/current_stage
-    reboot now
+    echo "Reboot now"
 fi
 
 # STAGE 3
@@ -92,7 +92,7 @@ then
     # athame
     sudo -u florian yay --noconfirm -S readline-athame-git
     echo -n 5 > $home_florian/current_stage
-    reboot now
+    echo "Reboot now"
 fi
 
 # STAGE 5
