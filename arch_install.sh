@@ -31,7 +31,7 @@ then
     pacman --noconfirm -S base-devel vim
     pacman --noconfirm -S i3 dmenu xclip
     mkdir -p $home_florian/.config/i3
-    cp $cur/i3_config $home_florian/.config/i3/config
+    sudo -u florian cp $cur/i3_config $home_florian/.config/i3/config
     echo -n 2 > $home_florian/current_stage
     echo "Reboot now"
 fi
@@ -74,15 +74,15 @@ then
     $cur/binutils.sh mips
     rm /tmp/binutils-build/*/config.cache
     # .vimrc
-    cp $cur/.vimrc $home_florian/.vimrc
-    git clone https://github.com/VundleVim/Vundle.vim.git $home_florian/.vim/bundle/Vundle.vim
-    vim +PluginInstall +qall
+    sudo -u florian cp $cur/.vimrc $home_florian/.vimrc
+    sudo -u florian git clone https://github.com/VundleVim/Vundle.vim.git $home_florian/.vim/bundle/Vundle.vim
+    sudo -u florian vim +PluginInstall +qall
     $home_florian/.vim/bundle/YouCompleteMe/install.py --clangd-completer 
-    cp $cur/.ycm_extra_conf.py $home_florian/.vim/.ycm_extra_conf.py
+    sudo -u florian cp $cur/.ycm_extra_conf.py $home_florian/.vim/.ycm_extra_conf.py
     # .tmux.conf
-    git clone https://github.com/tmux-plugins/tpm $home_florian/.tmux/plugins/tpm
-    git clone https://github.com/jimeh/tmux-themepack.git $home_florian/.tmux-themepack
-    cp $cur/.tmux.conf $home_florian/.tmux.conf
+    sudo -u florian git clone https://github.com/tmux-plugins/tpm $home_florian/.tmux/plugins/tpm
+    sudo -u florian git clone https://github.com/jimeh/tmux-themepack.git $home_florian/.tmux-themepack
+    sudo -u florian cp $cur/.tmux.conf $home_florian/.tmux.conf
     # athame
     sudo -u florian yay -S readline-athame-git
     echo -n 5 > $home_florian/current_stage
@@ -94,16 +94,17 @@ if [[ $stage == 5 ]]
 then
     # .bashrc
     rm $home_florian/.bashrc
-    cp $cur/.bashrc_arch $home_florian/.bashrc
-    cp $cur/.bash_aliases $home_florian/.bash_aliases
-    cp $cur/.inputrc $home_florian/.inputrc
+    sudo -u florian cp $cur/.bashrc_arch $home_florian/.bashrc
+    sudo -u florian cp $cur/.bash_aliases $home_florian/.bash_aliases
+    sudo -u florian cp $cur/.inputrc $home_florian/.inputrc
     # blackarch repo
     wget https://blackarch.org/strap.sh -O $cur/strap.sh
     chmod +x $cur/strap.sh
     $cur/strap.sh
+    rm $cur/strap.sh
     pacman -Syyu
     # pacman -S blackarch
-    pacman -S realvnc-vnc-server
+    sudo florian -u yay -S realvnc-vnc-server
     # keyboard setup
-    echo "That's it! Just do 'source ~/.bashrc' and start a new terminal"
+    echo "That's it! Just do 'source ~/.bashrc', start a new terminal, source the tmux config file, and C-b I to install tmux plugins!"
 fi
