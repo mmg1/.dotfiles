@@ -98,8 +98,6 @@ then
     sudo -u florian cp $cur/.bash_aliases $home_florian/.bash_aliases
     sudo -u florian cp $cur/.inputrc $home_florian/.inputrc
     # blackarch repo
-    wget https://blackarch.org/strap.sh -O $cur/strap.sh
-    chmod +x $cur/strap.sh
     $cur/strap.sh
     rm $cur/strap.sh
     pacman -Syyu
