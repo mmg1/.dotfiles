@@ -109,7 +109,7 @@ then
     rm $home_florian/.bashrc
     cp $cur/.bashrc_arch $home_florian/.bashrc
     cp $cur/.bash_aliases $home_florian/.bash_aliases
-    sudo -u florian source $home_florian/.bashrc
+    cp $cur/.inputrc $home_florian/.inputrc
     # blackarch repo
     wget https://blackarch.org/strap.sh -O $cur/strap.sh
     chmod +x $cur/strap.sh
@@ -118,4 +118,5 @@ then
     # pacman -S blackarch
     pacman -S realvnc-vnc-server
     # keyboard setup
+    echo "That's it! Just do 'source ~/.bashrc' and start a new terminal"
 fi
