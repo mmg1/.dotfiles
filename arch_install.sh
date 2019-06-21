@@ -108,7 +108,7 @@ then
     # .bashrc
     rm $home_florian/.bashrc
     cp $cur/.bashrc_arch $home_florian/.bashrc
-    cp $cur/.bashaliases $home_florian/.bashaliases
+    cp $cur/.bash_aliases $home_florian/.bash_aliases
     sudo -u florian source $home_florian/.bashrc
     # blackarch repo
     wget https://blackarch.org/strap.sh -O $cur/strap.sh
