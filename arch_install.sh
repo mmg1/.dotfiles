@@ -30,7 +30,7 @@ then
     pacman --noconfirm -Syyu
     pacman --noconfirm -S base-devel vim
     pacman --noconfirm -S i3 dmenu xclip
-    mkdir -p $home_florian/.config/i3
+    sudo -u florian mkdir -p $home_florian/.config/i3
     sudo -u florian cp $cur/i3_config $home_florian/.config/i3/config
     echo -n 2 > $home_florian/current_stage
     echo "Reboot now"
@@ -39,11 +39,12 @@ fi
 # STAGE 2
 if [[ $stage == 2 ]]
 then
-    pacman --noconfirm -S net-tools apache youtube-dl wget transmission-cli transmission-gtk qbittorrent irssi hexchat imagemagick gimp vlc subdl subdownloader mate-terminal tmux ranger caja perl-rename git cmake gdb gparted htop vim-latexsuite calibre knotes clamav bc sagemath typespeed mlocate
+    pacman --noconfirm -S net-tools apache youtube-dl wget transmission-cli transmission-gtk qbittorrent irssi hexchat imagemagick gimp mpv subdl subdownloader mate-terminal tmux ranger caja perl-rename git cmake gdb gparted htop vim-latexsuite calibre knotes clamav bc sagemath typespeed mlocate
     pacman --noconfirm -S yay --noconfirm
     sudo -u florian yay --noconfirm -S discord skypeforlinux-stable-bin slack-desktop realvnc-vnc-viewer hyx zulucrypt etcher cherrytree gtypist tpgt gdb-multiarch arm-linux-gnueabi-gcc aarch64-linux-gnu-gcc 
     pacman --noconfirm -Syyu
     mhwd-kernel -i linux50-rt
+    pacman --noconfirm -S linux50-rt-headers
     echo -n 3 > $home_florian/current_stage
     echo "Reboot now"
 fi
@@ -99,7 +100,6 @@ then
     sudo -u florian cp $cur/.inputrc $home_florian/.inputrc
     # blackarch repo
     $cur/strap.sh
-    rm $cur/strap.sh
     pacman -Syyu
     # pacman -S blackarch
     sudo florian -u yay -S realvnc-vnc-server
