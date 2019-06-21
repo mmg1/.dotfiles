@@ -40,11 +40,8 @@ fi
 if [[ $stage == 2 ]]
 then
     pacman --noconfirm -S net-tools apache youtube-dl wget transmission-cli transmission-gtk qbittorrent irssi hexchat imagemagick gimp vlc subdl subdownloader mate-terminal tmux ranger caja perl-rename git cmake gdb gparted htop vim-latexsuite calibre knotes clamav bc sagemath typespeed mlocate
-    # echo "Next?"; read ok
     pacman --noconfirm -S yay --noconfirm
-    # echo "Next?"; read ok
     sudo -u florian yay --noconfirm -S discord skypeforlinux-stable-bin slack-desktop realvnc-vnc-viewer hyx zulucrypt etcher cherrytree gtypist tpgt gdb-multiarch arm-linux-gnueabi-gcc aarch64-linux-gnu-gcc 
-    # echo "Next?"; read ok
     pacman --noconfirm -Syyu
     mhwd-kernel -i linux50-rt
     echo -n 3 > $home_florian/current_stage
@@ -65,32 +62,22 @@ then
     # vmware
     chmod +x $home_florian/Downloads/*.bundle
     $home_florian/Downloads/*.bundle
-    # echo "Next?"; read ok
     # pwntools
     pacman --noconfirm -S python2-pip
-    # echo "Next?"; read ok
     pip2 install pwntools
-    # echo "Next?"; read ok
     pacman --noconfirm -S python-pip
-    # echo "Next?"; read ok
     pip3 install --upgrade git+https://github.com/arthaud/python3-pwntools.git
-    # echo "Next?"; read ok
     $cur/binutils.sh arm
-    # echo "Next?"; read ok
     rm /tmp/binutils-build/*/config.cache
     $cur/binutils.sh aarch64
-    # echo "Next?"; read ok
     rm /tmp/binutils-build/*/config.cache
     $cur/binutils.sh mips
     rm /tmp/binutils-build/*/config.cache
-    # echo "Next?"; read ok
     # .vimrc
     cp $cur/.vimrc $home_florian/.vimrc
     git clone https://github.com/VundleVim/Vundle.vim.git $home_florian/.vim/bundle/Vundle.vim
     vim +PluginInstall +qall
-    # echo "Next?"; read ok
     $home_florian/.vim/bundle/YouCompleteMe/install.py --clangd-completer 
-    # echo "Next?"; read ok
     cp $cur/.ycm_extra_conf.py $home_florian/.vim/.ycm_extra_conf.py
     # .tmux.conf
     git clone https://github.com/tmux-plugins/tpm $home_florian/.tmux/plugins/tpm
