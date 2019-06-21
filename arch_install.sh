@@ -63,8 +63,8 @@ fi
 if [[ $stage == 4 ]]
 then
     # vmware
-    chmod +x $cur/*.bundle
-    $cur/*.bundle
+    chmod +x $home_florian/Downloads/*.bundle
+    $home_florian/Downloads/*.bundle
     # echo "Next?"; read ok
     # pwntools
     pacman --noconfirm -S python2-pip
