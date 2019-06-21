@@ -45,6 +45,7 @@ then
     # echo "Next?"; read ok
     sudo -u florian yay --noconfirm -S discord skypeforlinux-stable-bin slack-desktop realvnc-vnc-viewer hyx zulucrypt etcher cherrytree gtypist tpgt gdb-multiarch arm-linux-gnueabi-gcc aarch64-linux-gnu-gcc 
     # echo "Next?"; read ok
+    pacman --noconfirm -Syyu
     mhwd-kernel -i linux50-rt
     echo -n 3 > $home_florian/current_stage
     echo "Reboot now"
