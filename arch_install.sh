@@ -26,7 +26,7 @@ then
     sudo -u florian gsettings org.mate.peripherals-touchpad horizontal-edge-scrolling false
     sudo -u florian gsettings org.mate.peripherals-touchpad horizontal-two-finger-scrolling true
     sudo -u florian ln $cur/.keymap.xkb $home_florian/.keymap.xkb
-    sed -i 's/# start some nice programs/# keymap eu and switch Up-Shift_R\ntest -f \$HOME\/.keymap.xkb \&\& xkbcomp \$HOME\/.keymap.xkb \$DISPLAY/' $home_florian/.xinitrc
+sudo -u florian echo -e '[Desktop Entry]\nName=keyboard_setup\nExec=/bin/bash -c "test -f $HOME/.keymap.xkb && xkbcomp $HOME/.keymap.xkb $DISPLAY"\nType=Application' > $home_florian/.config/autostart/keyboard_setup.desktop
     echo "git clone https://github.com/arty-hlr/.dotfiles.git"
     echo -n 1 > $home_florian/current_stage
     exit
