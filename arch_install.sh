@@ -1,17 +1,16 @@
 #!/bin/bash
 
-if [[ $EUID -ne 0 ]]
-then
-    echo "Please run as root"
-    exit
-fi
-
 cur=/home/florian/.dotfiles
 home_florian=/home/florian
 
 if [[ -e $home_florian/current_stage ]]
 then
     stage=$(cat $home_florian/current_stage)
+    if [[ $EUID -ne 0 ]]
+    then
+	echo "Please run as root"
+	exit
+    fi
 else
     stage=0
 fi
@@ -19,15 +18,21 @@ fi
 # STAGE 0
 if [[ $stage == 0 ]]
 then
-    sudo -u florian gsettings org.mate.peripherals-touchpad natural-scroll true
-    sudo -u florian gsettings org.mate.peripherals-touchpad tap-to-click true
-    sudo -u florian gsettings org.mate.peripherals-touchpad vertical-edge-scrolling true
-    sudo -u florian gsettings org.mate.peripherals-touchpad vertical-two-finger-scrolling true
-    sudo -u florian gsettings org.mate.peripherals-touchpad horizontal-edge-scrolling false
-    sudo -u florian gsettings org.mate.peripherals-touchpad horizontal-two-finger-scrolling true
-    sudo -u florian ln $cur/.keymap.xkb $home_florian/.keymap.xkb
-    sudo -u florian echo -e '[Desktop Entry]\nName=keyboard_setup\nExec=/bin/bash -c "test -f $HOME/.keymap.xkb && xkbcomp $HOME/.keymap.xkb $DISPLAY"\nType=Application' > $home_florian/.config/autostart/keyboard_setup.desktop
-    sudo -u florian xkbcomp $home_florian/.keymap.xkb $DISPLAY
+    gsettings set org.mate.peripherals-touchpad natural-scroll true
+    gsettings set org.mate.peripherals-touchpad tap-to-click true
+    gsettings set org.mate.peripherals-touchpad vertical-edge-scrolling true
+    gsettings set org.mate.peripherals-touchpad vertical-two-finger-scrolling true
+    gsettings set org.mate.peripherals-touchpad horizontal-edge-scrolling false
+    gsettings set org.mate.peripherals-touchpad horizontal-two-finger-scrolling true
+    ln $cur/.keymap.xkb $home_florian/.keymap.xkb
+    echo -e '[Desktop Entry]\nName=keyboard_setup\nExec=/bin/bash -c "test -f $HOME/.keymap.xkb && xkbcomp $HOME/.keymap.xkb $DISPLAY"\nType=Application' > $home_florian/.config/autostart/keyboard_setup.desktop
+    xkbcomp $home_florian/.keymap.xkb $DISPLAY &> /dev/null
+    mkdir -p $home_florian/.config/i3
+    mkdir -p $home_florian/.config/i3status
+    ln $cur/i3_config $home_florian/.config/i3/config
+    ln $cur/i3status_config $home_florian/.config/i3status/config
+    gsettings set org.mate.session.required-components windowmanager "'i3'"
+    gsettings set org.mate.session required-components-list "['windowmanager']"
     echo "git clone https://github.com/arty-hlr/.dotfiles.git"
     echo -n 1 > $home_florian/current_stage
     exit
@@ -39,12 +44,6 @@ then
     pacman --noconfirm -Syyu
     pacman --noconfirm -S base-devel vim
     pacman --noconfirm -S i3 dmenu xclip
-    sudo -u florian mkdir -p $home_florian/.config/i3
-    sudo -u florian mkdir -p $home_florian/.config/i3status
-    sudo -u florian ln $cur/i3_config $home_florian/.config/i3/config
-    sudo -u florian ln $cur/i3status_config $home_florian/.config/i3status/config
-    sudo -u florian gsettings set org.mate.session.required-components windowmanager "'i3'"
-    sudo -u florian gsettings set org.mate.session required-components-list "['windowmanager']"
     echo -n 2 > $home_florian/current_stage
     echo "Reboot now"
 fi
@@ -54,7 +53,10 @@ if [[ $stage == 2 ]]
 then
     pacman --noconfirm -S net-tools apache youtube-dl wget transmission-cli transmission-gtk qbittorrent irssi hexchat imagemagick gimp mpv subdl subdownloader mate-terminal tmux ranger caja perl-rename git cmake gdb gparted htop vim-latexsuite calibre knotes clamav bc sagemath typespeed mlocate
     pacman --noconfirm -S yay --noconfirm
-    sudo -u florian yay --noconfirm -S spotify discord skypeforlinux-stable-bin slack-desktop realvnc-vnc-viewer hyx zulucrypt etcher cherrytree gtypist tpgt gdb-multiarch arm-linux-gnueabi-gcc aarch64-linux-gnu-gcc 
+    sudo -u florian yay -S spotify discord skypeforlinux-stable-bin slack-desktop realvnc-vnc-viewer hyx zulucrypt cherrytree gtypist tpgt gdb-multiarch arm-linux-gnueabi-gcc aarch64-linux-gnu-gcc 
+    sudo -u florian wget -O $home_florian/Downloads/balena-etcher.zip https://github.com/balena-io/etcher/releases/download/v1.5.50/balena-etcher-electron-1.5.50-linux-x64.zip 
+    sudo -u florian unzip $home_florian/Downloads/balena-etcher.zip
+    rm $home_florian/Downloads/balena-etcher.zip
     pacman --noconfirm -Syyu
     mhwd-kernel -i linux50-rt
     pacman --noconfirm -S linux50-rt-headers
