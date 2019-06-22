@@ -8,8 +8,8 @@ then
     stage=$(cat $home_florian/current_stage)
     if [[ $EUID -ne 0 ]]
     then
-	echo "Please run as root"
-	exit
+        echo "Please run as root"
+        exit
     fi
 else
     stage=0
@@ -51,7 +51,7 @@ fi
 # STAGE 2
 if [[ $stage == 2 ]]
 then
-    pacman --noconfirm -S net-tools apache youtube-dl wget transmission-cli transmission-gtk qbittorrent irssi hexchat imagemagick gimp mpv subdl subdownloader mate-terminal tmux ranger caja perl-rename git cmake gdb gparted htop vim-latexsuite calibre knotes clamav bc sagemath typespeed mlocate
+    pacman --noconfirm -S net-tools apache youtube-dl wget transmission-cli transmission-gtk qbittorrent irssi hexchat imagemagick gimp mpv subdl subdownloader mate-terminal tmux ranger caja perl-rename git cmake gdb gparted htop vim-latexsuite calibre knotes clamav bc sagemath typespeed mlocate redshift
     pacman --noconfirm -S yay --noconfirm
     sudo -u florian yay -S spotify discord skypeforlinux-stable-bin slack-desktop realvnc-vnc-viewer hyx zulucrypt cherrytree gtypist tpgt gdb-multiarch arm-linux-gnueabi-gcc aarch64-linux-gnu-gcc 
     sudo -u florian wget -O $home_florian/Downloads/balena-etcher.zip https://github.com/balena-io/etcher/releases/download/v1.5.50/balena-etcher-electron-1.5.50-linux-x64.zip 
@@ -101,6 +101,7 @@ then
     sudo -u florian ln $cur/.tmux.conf $home_florian/.tmux.conf
     # athame
     sudo -u florian yay -S readline-athame-git
+    systemctl enable fstrim.timer
     echo -n 5 > $home_florian/current_stage
     echo "Reboot now"
 fi
@@ -117,7 +118,9 @@ then
     $cur/strap.sh
     pacman -Syyu
     # pacman -S blackarch
-    sudo florian -u yay -S realvnc-vnc-server
+    sudo -u florian yay -S realvnc-vnc-server
+    sudo -u florian mkdir -p $home_florian/.config/mpv
+    sudo -u florian ln $cur/mpv.conf $home_florian/.config/mpv/mpv.conf
     echo "That's it! Just do 'source ~/.bashrc', start a new terminal, source the tmux config file, and C-b I to install tmux plugins!"
     rm $home_florian/current_stage
 fi
