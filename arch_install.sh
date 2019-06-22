@@ -40,7 +40,9 @@ then
     pacman --noconfirm -S base-devel vim
     pacman --noconfirm -S i3 dmenu xclip
     sudo -u florian mkdir -p $home_florian/.config/i3
+    sudo -u florian mkdir -p $home_florian/.config/i3status
     sudo -u florian ln $cur/i3_config $home_florian/.config/i3/config
+    sudo -u florian ln $cur/i3status_config $home_florian/.config/i3status/config
     sudo -u florian gsettings set org.mate.session.required-components windowmanager "'i3'"
     sudo -u florian gsettings set org.mate.session required-components-list "['windowmanager']"
     echo -n 2 > $home_florian/current_stage
