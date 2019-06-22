@@ -19,6 +19,8 @@ fi
 # STAGE 0
 if [[ $stage == 0 ]]
 then
+    sudo -u florian cp $cur/.keymap.xkb $home_florian/.keymap.xkb
+    sed -i 's/# start some nice programs/# keymap eu and switch Up-Shift_R\ntest -f ~\/.keymap.xkb \&\& xkbcomp ~\/.keymap.xkb \$DISPLAY/' .xinitrc
     echo "git clone https://github.com/arty-hlr/.dotfiles.git"
     echo -n 1 > $home_florian/current_stage
     exit

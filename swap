@@ -1,5 +1,0 @@
-partial modifier_keys
-xkb_symbols "swap_up_r_shift" {
-    replace key <RTSH> { [ Up ] };
-    replace key <UP> { [ Shift_R ] };
-};
