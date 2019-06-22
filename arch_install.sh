@@ -31,7 +31,6 @@ then
     mkdir -p $home_florian/.config/i3status
     ln $cur/i3_config $home_florian/.config/i3/config
     ln $cur/i3status_config $home_florian/.config/i3status/config
-    ln $cur/i3status.py $home_florian/.config/i3status/i3status.py
     gsettings set org.mate.session.required-components windowmanager "'i3'"
     gsettings set org.mate.session required-components-list "['windowmanager']"
     echo "git clone https://github.com/arty-hlr/.dotfiles.git"

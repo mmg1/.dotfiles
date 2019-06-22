@@ -2,18 +2,36 @@ general {
     colors = true
     interval = 1
     output_format = i3bar
-    color_good = "#2267a5"
+    color_good = "#90cb7e"
     color_degraded = "#8c7f22"
     color_bad = "#be2422"
 }
 
-order += "disk /"
-order += "wireless wlo1"
-order += "ethernet ens12u1u4"
-order += "cpu_usage"
-order += "battery 0"
+order += "spotify"
+order += "net_rate"
+order += "net_iplist"
+order += "sysdata"
 order += "volume master"
+order += "disk /"
 order += "tztime local"
+order += "process_status"
+
+sysdata {
+    thresholds = [(0, "good"), (60, "degraded"), (80, "bad")]
+    format = " [\?color=cpu_used_percent CPU: {cpu_used_percent}%], [\?color=mem_used_percent Mem: {mem_used}/{mem_total} {mem_total_unit} ]"
+    cpus = []
+    cache_timeout = 1
+}
+
+spotify {
+    cache_timeout = 2
+    format = " {artist} : {title} "
+}
+
+process_status {
+    process = "openvpn"
+    format = " VPN {icon} "
+}
 
 wireless wlo1 {
     format_up = " WiFi: %ip "
@@ -23,6 +41,25 @@ wireless wlo1 {
 ethernet ens12u1u4 {
     format_up = " LAN: %ip "
     format_down = " LAN: (/) "
+}
+
+net_iplist {
+    format_iface = "{iface}:{ip4}"
+    format = " {format_iface} "
+}
+
+net_rate {
+    format = " ↑ {down} ↓ {up} "
+    format_value = "[\?min_length=9 {value:.1f} {unit}]"
+    unit = "kB/s"
+    precision = 0
+    format_no_connection = ""
+}
+
+battery_level {
+    format = " Power: {icon} {percent}% {time_remaining} left "
+    hide_seconds = true
+    measurement_mode = None
 }
 
 battery 0 {
