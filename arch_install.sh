@@ -117,7 +117,7 @@ then
     # blackarch repo
     $cur/strap.sh
     pacman -Syyu
-    # pacman -S blackarch
+    pacman -S blackarch
     sudo -u florian yay -S realvnc-vnc-server
     sudo -u florian mkdir -p $home_florian/.config/mpv
     sudo -u florian ln $cur/mpv.conf $home_florian/.config/mpv/mpv.conf
