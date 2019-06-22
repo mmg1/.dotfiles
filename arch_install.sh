@@ -26,7 +26,7 @@ then
     sudo -u florian gsettings org.mate.peripherals-touchpad horizontal-edge-scrolling false
     sudo -u florian gsettings org.mate.peripherals-touchpad horizontal-two-finger-scrolling true
     sudo -u florian cp $cur/.keymap.xkb $home_florian/.keymap.xkb
-    sed -i 's/# start some nice programs/# keymap eu and switch Up-Shift_R\ntest -f ~\/.keymap.xkb \&\& xkbcomp ~\/.keymap.xkb \$DISPLAY/' .xinitrc
+    sed -i 's/# start some nice programs/# keymap eu and switch Up-Shift_R\ntest -f ~\/.keymap.xkb \&\& xkbcomp ~\/.keymap.xkb \$DISPLAY/' $home_florian/.xinitrc
     echo "git clone https://github.com/arty-hlr/.dotfiles.git"
     echo -n 1 > $home_florian/current_stage
     exit
@@ -113,6 +113,6 @@ then
     pacman -Syyu
     # pacman -S blackarch
     sudo florian -u yay -S realvnc-vnc-server
-    # keyboard setup
     echo "That's it! Just do 'source ~/.bashrc', start a new terminal, source the tmux config file, and C-b I to install tmux plugins!"
+    rm $home_florian/current_stage
 fi
