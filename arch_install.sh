@@ -32,6 +32,8 @@ then
     pacman --noconfirm -S i3 dmenu xclip
     sudo -u florian mkdir -p $home_florian/.config/i3
     sudo -u florian cp $cur/i3_config $home_florian/.config/i3/config
+    sudo -u florian gsettings set org.mate.session.required-components windowmanager "'i3'"
+    sudo -u florian gsettings set org.mate.session required-components-list "['windowmanager']"
     echo -n 2 > $home_florian/current_stage
     echo "Reboot now"
 fi
@@ -41,7 +43,7 @@ if [[ $stage == 2 ]]
 then
     pacman --noconfirm -S net-tools apache youtube-dl wget transmission-cli transmission-gtk qbittorrent irssi hexchat imagemagick gimp mpv subdl subdownloader mate-terminal tmux ranger caja perl-rename git cmake gdb gparted htop vim-latexsuite calibre knotes clamav bc sagemath typespeed mlocate
     pacman --noconfirm -S yay --noconfirm
-    sudo -u florian yay --noconfirm -S discord skypeforlinux-stable-bin slack-desktop realvnc-vnc-viewer hyx zulucrypt etcher cherrytree gtypist tpgt gdb-multiarch arm-linux-gnueabi-gcc aarch64-linux-gnu-gcc 
+    sudo -u florian yay --noconfirm -S spotify discord skypeforlinux-stable-bin slack-desktop realvnc-vnc-viewer hyx zulucrypt etcher cherrytree gtypist tpgt gdb-multiarch arm-linux-gnueabi-gcc aarch64-linux-gnu-gcc 
     pacman --noconfirm -Syyu
     mhwd-kernel -i linux50-rt
     pacman --noconfirm -S linux50-rt-headers
