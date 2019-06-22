@@ -19,6 +19,12 @@ fi
 # STAGE 0
 if [[ $stage == 0 ]]
 then
+    sudo -u florian gsettings org.mate.peripherals-touchpad natural-scroll true
+    sudo -u florian gsettings org.mate.peripherals-touchpad tap-to-click true
+    sudo -u florian gsettings org.mate.peripherals-touchpad vertical-edge-scrolling true
+    sudo -u florian gsettings org.mate.peripherals-touchpad vertical-two-finger-scrolling true
+    sudo -u florian gsettings org.mate.peripherals-touchpad horizontal-edge-scrolling false
+    sudo -u florian gsettings org.mate.peripherals-touchpad horizontal-two-finger-scrolling true
     sudo -u florian cp $cur/.keymap.xkb $home_florian/.keymap.xkb
     sed -i 's/# start some nice programs/# keymap eu and switch Up-Shift_R\ntest -f ~\/.keymap.xkb \&\& xkbcomp ~\/.keymap.xkb \$DISPLAY/' .xinitrc
     echo "git clone https://github.com/arty-hlr/.dotfiles.git"
