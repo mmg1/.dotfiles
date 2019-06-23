@@ -2,21 +2,24 @@ general {
     colors = true
     interval = 1
     output_format = i3bar
-    color_good = "#90cb7e"
+    color_good = "#33ee33"
     color_degraded = "#8c7f22"
-    color_bad = "#be2422"
+    color_bad = "#ff3333"
 }
 
 order += "spotify"
+order += "wireless wlo1"
+order += "ethernet ens12u1u4"
 order += "net_rate"
 order += "sysdata"
 order += "disk /"
+order += "battery_level"
 order += "tztime local"
 order += "process_status"
 
 sysdata {
     thresholds = [(0, "good"), (60, "degraded"), (80, "bad")]
-    format = " [\?color=cpu_used_percent CPU: {cpu_used_percent}%], [\?color=mem_used_percent Mem: {mem_used}/{mem_total} {mem_total_unit} ]"
+    format = " [\?color=cpu_used_percent CPU: {cpu_used_percent:.1f}%], [\?color=mem_used_percent Mem: {mem_used:.1f}/{mem_total:.1f} {mem_total_unit} ]"
     cpus = []
     cache_timeout = 1
 }
@@ -24,26 +27,25 @@ sysdata {
 spotify {
     cache_timeout = 2
     format = " {artist} : {title} "
+    format_down = ""
+    format_stopped = ""
+    color_playing = "#a9dbff"
 }
 
 process_status {
     process = "openvpn"
-    format = " VPN {icon} "
+    format = " VPN "
+    cache_timeout = 2
 }
 
 wireless wlo1 {
     format_up = " WiFi: %ip "
-    format_down = " WiFi: (/) "
+    format_down = ""
 }
 
 ethernet ens12u1u4 {
     format_up = " LAN: %ip "
-    format_down = " LAN: (/) "
-}
-
-net_iplist {
-    format_iface = "{iface}:{ip4}"
-    format = " {format_iface} "
+    format_down = ""
 }
 
 net_rate {
@@ -54,37 +56,16 @@ net_rate {
 }
 
 battery_level {
-    format = " Power: {icon} {percent}% {time_remaining} left "
-    hide_seconds = true
+    format = " Power: {icon} {percent}% "
     measurement_mode = None
-}
-
-battery 0 {
-    format = " Power: %status %percentage %remaining left "
-    path = "/sys/class/power_supply/BAT0/uevent"
-    low_threshold = 20
-    hide_seconds = true
-    integer_battery_capacity = true
+    cache_timeout = 2
 }
 
 tztime local {
     format = " %d/%m/%y %H:%M "
 }
 
-cpu_usage {
-    format = " CPU: %usage %cpu0 %cpu1 %cpu2 %cpu3 %cpu4 %cpu5 %cpu6 %cpu7"
-    max_threshold = 75
-}
-
 disk "/" {
     format = " Disk: %free "
     prefix_type = decimal
 }
-
-volume master {
-    format = " Vol: %volume "
-    device = "default"
-    mixer = "Master"
-    mixer_idx = 0
-}
-

@@ -35,7 +35,7 @@ bindsym $mod+Return exec mate-terminal -e "tmux new -A -s main"
 bindsym $mod+Shift+Return exec mate-terminal -e "tmux new -A -s random"
 
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+q kill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run
@@ -49,6 +49,13 @@ bindsym Mod1+b exec firefox
 bindsym Mod1+s exec spotify
 bindsym Mod1+d exec discord
 bindsym Mod1+i exec mate-terminal -e ranger
+bindsym Mod1+v exec vmware
+
+# start/stop VPN
+bindsym $mod+p exec "gksu vpn-on"
+bindsym $mod+Shift+p exec "gksu vpn-off"
+
+
 
 # change focus
 bindsym $mod+h focus left
@@ -199,5 +206,6 @@ bar {
     status_command py3status -c ~/.config/i3status/config
 	position top
 	modifier Mod2
+    workspace_buttons no
 	font pango:monospace 12
 }
