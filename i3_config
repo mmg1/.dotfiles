@@ -31,6 +31,9 @@ font pango:monospace 0
 exec xautolock -time 20 -locker 'i3lock -c 111111' &
 exec xss-lock -- i3lock -c 111111 &
 
+# start redshift
+exec --no-startup-id redshift-gtk
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
