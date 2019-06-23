@@ -27,6 +27,10 @@ font pango:monospace 0
 # X core fonts rendering does not support right-to-left and this being a bitmap
 # font, it doesn’t scale on retina/hidpi displays.
 
+# start xautolock
+exec xautolock -time 20 -locker 'i3lock -c 111111' &
+exec xss-lock -- i3lock -c 111111 &
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -54,8 +58,6 @@ bindsym Mod1+v exec vmware
 # start/stop VPN
 bindsym $mod+p exec "gksu vpn-on"
 bindsym $mod+Shift+p exec "gksu vpn-off"
-
-
 
 # change focus
 bindsym $mod+h focus left
@@ -164,10 +166,10 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -183,7 +185,8 @@ mode "resize" {
 
 # Set shut down, restart and locking features
 bindsym $mod+0 mode "$mode_system"
-set $Locker i3lock --color=000000 && sleep 1
+set $Locker i3lock --color=111111 && sleep 1
+bindsym Mod1+l exec $Locker
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
     bindsym l exec --no-startup-id $Locker, mode "default"
