@@ -9,9 +9,7 @@ general {
 
 order += "spotify"
 order += "net_rate"
-order += "net_iplist"
 order += "sysdata"
-order += "volume master"
 order += "disk /"
 order += "tztime local"
 order += "process_status"
@@ -49,9 +47,8 @@ net_iplist {
 }
 
 net_rate {
-    format = " ↑ {down} ↓ {up} "
+    format = " ↓ {down} ↑ {up} "
     format_value = "[\?min_length=9 {value:.1f} {unit}]"
-    unit = "kB/s"
     precision = 0
     format_no_connection = ""
 }

@@ -124,3 +124,5 @@ then
     echo "That's it! Just do 'source ~/.bashrc', start a new terminal, source the tmux config file, and C-b I to install tmux plugins!"
     rm $home_florian/current_stage
 fi
+
+# sudo vmware-modconfig --console --install-all
