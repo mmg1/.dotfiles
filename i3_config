@@ -38,8 +38,8 @@ exec --no-startup-id redshift-gtk
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec mate-terminal -e "tmux new -A -s main"
-bindsym $mod+Shift+Return exec mate-terminal -e "tmux new -A -s random"
+bindsym $mod+Return exec mate-terminal -e "bash -c 'source ~/.bashrc && tmux new -A -s main'"
+bindsym $mod+Shift+Return exec mate-terminal -e "bash -c 'source ~/.bashrc && tmux new -A -s random'"
 
 # kill focused window
 bindsym $mod+q kill
@@ -57,10 +57,11 @@ bindsym Mod1+s exec spotify
 bindsym Mod1+d exec discord
 bindsym Mod1+i exec mate-terminal -e ranger
 bindsym Mod1+v exec vmware
+bindsym Mod1+c exec mate-terminal -e caja
 
 # start/stop VPN
-bindsym $mod+p exec "gksu vpn-on"
-bindsym $mod+Shift+p exec "gksu vpn-off"
+bindsym $mod+p exec "cat ~/Documents/.p | sudo -S vpn-on"
+bindsym $mod+Shift+p exec "cat ~/Documents/.p | sudo -S vpn-off"
 
 # change focus
 bindsym $mod+h focus left
