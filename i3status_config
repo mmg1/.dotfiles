@@ -7,19 +7,15 @@ general {
     color_bad = "#ff3333"
 }
 
-order += "spotify"
-order += "wireless wlo1"
-order += "ethernet ens12u1u4"
 order += "net_rate"
 order += "sysdata"
 order += "diskdata"
-order += "battery_level"
 order += "tztime local"
 order += "process_status"
 
 sysdata {
     thresholds = [(0, "good"), (60, "degraded"), (80, "bad")]
-    format = " [\?color=cpu_used_percent CPU: {cpu_used_percent:.1f}%], [\?color=mem_used_percent Mem: {mem_used:.1f}/{mem_total:.1f} {mem_total_unit} ]"
+    format = " [\?color=cpu_used_percent CPU: {cpu_used_percent:.1f}%], [\?color=mem_used_percent Mem: {mem_used:.1f}/{mem_total:.1f} GB ]"
     cpus = []
     cache_timeout = 1
 }

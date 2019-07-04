@@ -27,13 +27,6 @@ font pango:monospace 0
 # X core fonts rendering does not support right-to-left and this being a bitmap
 # font, it doesn’t scale on retina/hidpi displays.
 
-# start xautolock
-exec xautolock -time 20 -locker 'i3lock -e -c 333333' &
-exec xss-lock -- i3lock -e -c 333333 &
-
-# start xflux
-exec --no-startup-id xflux -l 48.7 -g -0.777 -k 3000
-
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -58,10 +51,6 @@ bindsym Mod1+d exec discord
 bindsym Mod1+i exec mate-terminal -e ranger
 bindsym Mod1+v exec vmware
 bindsym Mod1+c exec mate-terminal -e caja
-
-# start/stop VPN
-bindsym $mod+p exec "cat ~/Documents/.p | sudo -S vpn-on"
-bindsym $mod+Shift+p exec "cat ~/Documents/.p | sudo -S vpn-off"
 
 # change focus
 bindsym $mod+h focus left

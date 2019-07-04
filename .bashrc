@@ -139,10 +139,8 @@ export PYTHONPATH=$HOME/Documents/Number-Theory-Python-master/:$PYTHONPATH
 export ATHAME_SHOW_MODE=0
 
 
-# start tmux if (1) tmux exists, (2) we're in an interactive shell, (3) tmux doesn't try to run within itself
-if command -v tmux &> /dev/null && [ -n "$PS1"  ] && [[ ! "$TERM" =~ screen  ]] && [[ ! "$TERM" =~ tmux  ]] && [ -z "$TMUX"  ]; then
-      tmux kill-session -t 0
-      exec tmux new -A -s main
+tmux has-session -t 0 &> /dev/null
+if [ $? = 0 ]
+then 
+    tmux kill-session -t 0
 fi
-
-PATH=$PATH:/home/florian/010editor;export PATH; # ADDED BY INSTALLER - DO NOT EDIT OR DELETE THIS COMMENT - 87FF8EFC-483D-BCAA-D67D-735CF60410D1 D597B4B5-CACE-C01D-E652-6C52B37E44F8
