@@ -12,7 +12,7 @@ order += "wireless wlo1"
 order += "ethernet ens12u1u4"
 order += "net_rate"
 order += "sysdata"
-order += "disk /"
+order += "diskdata"
 order += "battery_level"
 order += "tztime local"
 order += "process_status"
@@ -65,7 +65,6 @@ tztime local {
     format = " %d/%m/%y %H:%M "
 }
 
-disk "/" {
-    format = " Disk: %free "
-    prefix_type = decimal
+diskdata {
+    format = " Disk: {free} GB "
 }

@@ -23,6 +23,7 @@ Plugin 'tpope/vim-obsession'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'lervag/vimtex'
 Plugin 'xuhdev/vim-latex-live-preview'
+Plugin 'jlanzarotta/bufexplorer'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
