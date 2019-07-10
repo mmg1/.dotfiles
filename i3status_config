@@ -2,24 +2,33 @@ general {
     colors = true
     interval = 1
     output_format = i3bar
-    color_good = "#33ee33"
+    color_good = "#229922"
     color_degraded = "#8c7f22"
-    color_bad = "#ff3333"
+    color_bad = "#bb2222"
 }
 
 order += "spotify"
+order += "process_status vpn"
+order += "whatismyip"
 order += "wireless wlo1"
 order += "ethernet ens12u1u4"
 order += "net_rate"
 order += "sysdata"
 order += "diskdata"
+order += "i3block xss"
 order += "battery_level"
-order += "tztime local"
-order += "process_status"
+order += "clock"
+
+whatismyip {
+    format = " {city}, {country} "
+    hide_when_offline = True
+    cache_timeout = 1
+    color_good = "#ffffff"
+}
 
 sysdata {
     thresholds = [(0, "good"), (60, "degraded"), (80, "bad")]
-    format = " [\?color=cpu_used_percent CPU: {cpu_used_percent:.1f}%], [\?color=mem_used_percent Mem: {mem_used:.1f}/{mem_total:.1f} {mem_total_unit} ]"
+    format = " [\?color=cpu_used_percent CPU: [\?min_length=5 {cpu_used_percent:.1f}%]], [\?color=mem_used_percent Mem: [\?min_length=4 {mem_used:.1f}]/{mem_total:.1f} {mem_total_unit} ]"
     cpus = []
     cache_timeout = 1
 }
@@ -32,10 +41,18 @@ spotify {
     color_playing = "#a9dbff"
 }
 
-process_status {
+i3block xss {
+    cache_timeout = 2
+    command = "~/.config/i3status/xss.sh"
+    format = " {output} "
+    on_click 1 = "exec xset -q | grep timeout | grep -qo '1200' && xset s off || xset s on s 1200 0"
+}
+
+process_status vpn {
     process = "openvpn"
     format = " VPN "
     cache_timeout = 2
+    on_click 1 = "exec pgrep openvpn && cat ~/Documents/.p | sudo -S vpn-off || cat ~/Documents/.p | sudo -S vpn-on"
 }
 
 wireless wlo1 {
@@ -61,10 +78,12 @@ battery_level {
     cache_timeout = 2
 }
 
-tztime local {
-    format = " %d/%m/%y %H:%M "
+clock {
+    format = " [\?color=#56b3d9 {Europe/Paris}] "
+    format_time = "%d/%m/%d %H:%M"
 }
 
 diskdata {
+    disk = nvme0n1p2
     format = " Disk: {free} GB "
 }
