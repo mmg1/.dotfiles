@@ -45,7 +45,7 @@ i3block xss {
     cache_timeout = 2
     command = "~/.config/i3status/xss.sh"
     format = " {output} "
-    on_click 1 = "exec xset -q | grep timeout | grep -qo '1200' && xset s off || xset s on s 1200 0"
+    on_click 1 = "exec xset -q | grep -o .*cycle | grep -qo '\<0\>' && xset s on s 1200 0 || xset s off"
 }
 
 process_status vpn {
