@@ -31,7 +31,6 @@ then
     mkdir -p $home_florian/.config/i3status
     ln $cur/i3_config $home_florian/.config/i3/config
     ln $cur/i3status_config $home_florian/.config/i3status/config
-    ln $cur/i3status_xss.sh $home_florian/.config/i3status/xss.sh
     gsettings set org.mate.session.required-components windowmanager "'i3'"
     gsettings set org.mate.session required-components-list "['windowmanager']"
     echo "git clone https://github.com/arty-hlr/.dotfiles.git"
@@ -52,12 +51,11 @@ fi
 # STAGE 2
 if [[ $stage == 2 ]]
 then
-    pacman --noconfirm -S net-tools apache youtube-dl wget transmission-cli transmission-gtk qbittorrent irssi hexchat imagemagick gimp mpv subdl subdownloader mate-terminal tmux ranger caja perl-rename git cmake gdb gparted htop vim-latexsuite calibre knotes clamav bc sagemath typespeed mlocate redshift
-    pacman --noconfirm -S yay --noconfirm
-    sudo -u florian yay -S spotify discord skypeforlinux-stable-bin slack-desktop realvnc-vnc-viewer hyx zulucrypt cherrytree gtypist tpgt gdb-multiarch arm-linux-gnueabi-gcc aarch64-linux-gnu-gcc 
-    sudo -u florian wget -O $home_florian/Downloads/balena-etcher.zip https://github.com/balena-io/etcher/releases/download/v1.5.50/balena-etcher-electron-1.5.50-linux-x64.zip 
-    sudo -u florian unzip $home_florian/Downloads/balena-etcher.zip
-    rm $home_florian/Downloads/balena-etcher.zip
+    pacman --noconfirm -S net-tools apache youtube-dl wget transmission-cli transmission-gtk qbittorrent irssi hexchat imagemagick gimp mpv subdl subdownloader mate-terminal tmux ranger caja perl-rename git cmake gdb gparted htop vim-latexsuite calibre knotes clamav bc sagemath typespeed mlocate
+    pacman --noconfirm -S yay
+    sudo -u florian yay -S spotify discord skypeforlinux-stable-bin slack-desktop realvnc-vnc-viewer hyx zulucrypt cherrytree gtypist tpgt gdb-multiarch arm-linux-gnueabi-gcc aarch64-linux-gnu-gcc fluxgui xss-lock xautolock py3status etcher
+    # cp $cur/i3lock.service /etc/systemd/system/i3lock.service
+    # systemctl enable i3lock
     pacman --noconfirm -Syyu
     mhwd-kernel -i linux50-rt
     pacman --noconfirm -S linux50-rt-headers

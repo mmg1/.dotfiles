@@ -73,8 +73,8 @@ set foldlevel=99
 " Enable folding with the spacebar
 nnoremap <space> za
 " Enable yanking/pasting to clipboard
-vnoremap <C-c> :w !xclip -i -sel clipboard<CR><CR>
-noremap <C-v> :r !xclip -o -sel clipboard<CR><CR>
+noremap <C-y> :call system("xclip -i -sel clipboard", @")<CR>
+noremap <C-p> :r !xclip -o -sel clipboard<CR><CR>
 
 " NERDtree toggle
 nnoremap <C-\> :NERDTreeToggle<CR>
