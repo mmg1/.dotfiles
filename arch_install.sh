@@ -55,8 +55,8 @@ then
     pacman --noconfirm -S yay
     sudo -u florian yay -S spotify discord skypeforlinux-stable-bin slack-desktop realvnc-vnc-viewer hyx zulucrypt cherrytree gtypist tpgt gdb-multiarch arm-linux-gnueabi-gcc aarch64-linux-gnu-gcc fluxgui py3status etcher
     sudo -u florian ln -s $cur/i3lock_once /usr/bin/i3lock_once
-    cp $cur/i3lock.service /etc/systemd/system/i3lock@florian.service
-    systemctl enable i3lock@florian.service
+    cp $cur/i3lock_once.service /etc/systemd/system/i3lock_once.service
+    systemctl enable i3lock.service
     pacman --noconfirm -Syyu
     mhwd-kernel -i linux50-rt
     pacman --noconfirm -S linux50-rt-headers
