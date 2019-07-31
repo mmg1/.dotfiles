@@ -27,11 +27,6 @@ font pango:monospace 0
 # X core fonts rendering does not support right-to-left and this being a bitmap
 # font, it doesn’t scale on retina/hidpi displays.
 
-# start xautolock
-exec xautolock -locker "i3lock -e --nofork --color=333333" -time 20 -detectsleep -notify 10 -notifier "notify-send 'Locking screen in 10 seconds'"
-exec xss-lock -- xautolock -locknow 
-# exec xss-lock -- i3lock -e --nofork --color=333333
-
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -192,13 +187,10 @@ mode "resize" {
 
 # Set shut down, restart and locking features
 bindsym $mod+0 mode "$mode_system"
-# set $Locker "i3lock -e --nofork --color=333333"
-set $Locker "xautolock -locknow"
+set $Locker "i3lock -n -e -c 333333"
 bindsym Mod1+l exec $Locker
-set $mode_system System (c) screensaver on, (Shift+c) screensaver off, (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
+set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
-    bindsym c exec --no-startup-id xautolock -enable, mode "default"
-    bindsym Shift+c exec --no-startup-id xautolock -disable, mode "default"
     bindsym l exec --no-startup-id $Locker, mode "default"
     bindsym e exec --no-startup-id i3-msg exit, mode "default"
     bindsym s exec --no-startup-id systemctl suspend, mode "default"

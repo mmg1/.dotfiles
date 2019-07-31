@@ -53,9 +53,10 @@ if [[ $stage == 2 ]]
 then
     pacman --noconfirm -S net-tools apache youtube-dl wget transmission-cli transmission-gtk qbittorrent irssi hexchat imagemagick gimp mpv subdl subdownloader mate-terminal tmux ranger caja perl-rename git cmake gdb gparted htop vim-latexsuite calibre knotes clamav bc sagemath typespeed mlocate
     pacman --noconfirm -S yay
-    sudo -u florian yay -S spotify discord skypeforlinux-stable-bin slack-desktop realvnc-vnc-viewer hyx zulucrypt cherrytree gtypist tpgt gdb-multiarch arm-linux-gnueabi-gcc aarch64-linux-gnu-gcc fluxgui xss-lock xautolock py3status etcher
-    # cp $cur/i3lock.service /etc/systemd/system/i3lock.service
-    # systemctl enable i3lock
+    sudo -u florian yay -S spotify discord skypeforlinux-stable-bin slack-desktop realvnc-vnc-viewer hyx zulucrypt cherrytree gtypist tpgt gdb-multiarch arm-linux-gnueabi-gcc aarch64-linux-gnu-gcc fluxgui py3status etcher
+    sudo -u florian ln -s $cur/i3lock_once /usr/bin/i3lock_once
+    cp $cur/i3lock.service /etc/systemd/system/i3lock@florian.service
+    systemctl enable i3lock@florian.service
     pacman --noconfirm -Syyu
     mhwd-kernel -i linux50-rt
     pacman --noconfirm -S linux50-rt-headers
