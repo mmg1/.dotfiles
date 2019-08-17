@@ -53,7 +53,7 @@ if [[ $stage == 2 ]]
 then
     pacman --noconfirm -S gnu-netcat net-tools apache youtube-dl wget transmission-cli transmission-gtk qbittorrent irssi hexchat imagemagick gimp mpv subdl subdownloader mate-terminal tmux ranger caja perl-rename git cmake gdb gparted htop vim-latexsuite calibre knotes clamav bc sagemath typespeed mlocate
     pacman --noconfirm -S yay
-    sudo -u florian yay -S spotify discord skypeforlinux-stable-bin slack-desktop realvnc-vnc-viewer hyx zulucrypt cherrytree gtypist tpgt gdb-multiarch arm-linux-gnueabi-gcc aarch64-linux-gnu-gcc fluxgui py3status etcher
+    sudo -u florian yay -S spotify discord skypeforlinux-stable-bin slack-desktop realvnc-vnc-viewer realvnc-vnc-server pwndbg peda hyx zulucrypt cherrytree gtypist tpgt gdb-multiarch arm-linux-gnueabi-gcc aarch64-linux-gnu-gcc fluxgui py3status etcher
     sudo -u florian ln -s $cur/i3lock_once /usr/bin/i3lock_once
     cp $cur/i3lock_once.service /etc/systemd/system/i3lock_once.service
     systemctl enable i3lock.service
@@ -121,6 +121,9 @@ then
     sudo -u florian yay -S realvnc-vnc-server
     sudo -u florian mkdir -p $home_florian/.config/mpv
     sudo -u florian ln $cur/mpv.conf $home_florian/.config/mpv/mpv.conf
+    sudo -u florian ln $cur/.gdbinit $home_florian/.gdbinit
+    ln -s $cur/peda /usr/bin/peda
+    ln -s $cur/pwndbg /usr/bin/pwndbg
     echo "That's it! Just do 'source ~/.bashrc', start a new terminal, source the tmux config file, and C-b I to install tmux plugins!"
     rm $home_florian/current_stage
 fi
