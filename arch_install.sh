@@ -51,7 +51,7 @@ fi
 # STAGE 2
 if [[ $stage == 2 ]]
 then
-    pacman --noconfirm -S net-tools apache youtube-dl wget transmission-cli transmission-gtk qbittorrent irssi hexchat imagemagick gimp mpv subdl subdownloader mate-terminal tmux ranger caja perl-rename git cmake gdb gparted htop vim-latexsuite calibre knotes clamav bc sagemath typespeed mlocate
+    pacman --noconfirm -S gnu-netcat net-tools apache youtube-dl wget transmission-cli transmission-gtk qbittorrent irssi hexchat imagemagick gimp mpv subdl subdownloader mate-terminal tmux ranger caja perl-rename git cmake gdb gparted htop vim-latexsuite calibre knotes clamav bc sagemath typespeed mlocate
     pacman --noconfirm -S yay
     sudo -u florian yay -S spotify discord skypeforlinux-stable-bin slack-desktop realvnc-vnc-viewer hyx zulucrypt cherrytree gtypist tpgt gdb-multiarch arm-linux-gnueabi-gcc aarch64-linux-gnu-gcc fluxgui py3status etcher
     sudo -u florian ln -s $cur/i3lock_once /usr/bin/i3lock_once
