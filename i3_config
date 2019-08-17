@@ -53,7 +53,7 @@ bindsym Mod1+v exec vmware
 bindsym Mod1+c exec mate-terminal -e caja
 
 # start HTB openvpn
-bindsym $mod+p exec "cat ~/Documents/.p | sudo -S openvpn /home/florian/Documents/CTF-writeups/HTB/artemishlr.ovpn"
+bindsym $mod+p exec "cat ~/Documents/.p | sudo -S openvpn /home/florian/Documents/HTB/artemishlr.ovpn"
 bindsym $mod+Shift+p exec "cat ~/Documents/.p | sudo -S pkill openvpn"
 # change focus
 bindsym $mod+h focus left
