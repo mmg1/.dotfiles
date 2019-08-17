@@ -1,5 +1,8 @@
 set disassembly-flavor intel
+<<<<<<< HEAD
 source ~/pwndbg/gdbinit.py
+=======
+>>>>>>> 68c2788... fixed .gdbinit
 
 define init-peda
 source ~/peda/peda.py
