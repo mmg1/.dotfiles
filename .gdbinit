@@ -1,5 +1,4 @@
 set disassembly-flavor intel
-source /usr/share/pwndbg/gdbinit.py
 
 define init-peda
 source /usr/share/peda/peda.py
