@@ -135,7 +135,6 @@ export ATHAME_SHOW_MODE=0
 export VISUAL=vim
 export EDITOR="$VISUAL"
 
-if [ -z "$TMUX"  ] 
-then
-    ( tmux attach && tmux kill-session -t 0 ) || exec tmux new -s main
+if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+    tmux new -A -s main && exit;
 fi
