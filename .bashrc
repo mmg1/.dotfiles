@@ -135,20 +135,7 @@ export ATHAME_SHOW_MODE=0
 export VISUAL=vim
 export EDITOR="$VISUAL"
 
-<<<<<<< HEAD
-# start tmux if (1) tmux exists, (2) we're in an interactive shell, (3) tmux doesn't try to run within itself
-if command -v tmux &> /dev/null && [ -n "$PS1"  ] && [[ ! "$TERM" =~ screen  ]] && [[ ! "$TERM" =~ tmux  ]] && [ -z "$TMUX"  ]; then
-        tmux kill-session -t 0
-            exec tmux new -A -s main
-fi
-=======
 if [ -z "$TMUX"  ] 
 then
     ( tmux attach && tmux kill-session -t 0 ) || exec tmux new -s main
 fi
-# start tmux if (1) tmux exists, (2) we're in an interactive shell, (3) tmux doesn't try to run within itself
-# if command -v tmux &> /dev/null && [ -n "$PS1"  ] && [[ ! "$TERM" =~ screen  ]] && [[ ! "$TERM" =~ tmux  ]] && [ -z "$TMUX"  ]; then
-#     tmux kill-session -t 0
-#     exec tmux new -A -s main
-# fi
->>>>>>> 796faeb... real commit for tmux fix
