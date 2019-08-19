@@ -143,5 +143,5 @@ export EDITOR="$VISUAL"
 #     tmux attach
 # fi
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-    tmux a -t main || exec tmux new -s main && exit;
+    tmux new -A -s main && exit;
 fi
