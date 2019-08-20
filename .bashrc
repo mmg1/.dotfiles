@@ -142,6 +142,7 @@ export EDITOR="$VISUAL"
 # else
 #     tmux attach
 # fi
-if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-    tmux new -A -s main && exit;
-fi
+# if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+#     tmux kill-session -t 0
+#     tmux new -A -s main && exit;
+# fi

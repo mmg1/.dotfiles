@@ -31,7 +31,8 @@ font pango:monospace 0
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec mate-terminal
+bindsym $mod+Return exec mate-terminal -e "tmux attach"
+bindsym $mod+Shift+Return exec mate-terminal
 
 # kill focused window
 bindsym $mod+q kill
