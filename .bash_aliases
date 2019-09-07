@@ -7,3 +7,4 @@ alias open='xdg-open'
 cutter () { /home/florian/Documents/CTF/reverse/Cutter-v1.8.2-x64.Linux.AppImage "$1" &> /dev/null & }
 alias tn='tmux new -s main'
 alias ta='tmux attach'
+alias tx='pkill -USR1 tmux'
