@@ -35,8 +35,8 @@ floating_modifier $mod
 bindsym $mod+Return exec mate-terminal -e "tmux attach"
 bindsym $mod+Shift+Return exec mate-terminal
 
-# fix tmux problem
-bindsym $mod+9 exec "pkill -USR1 tmux"
+# take screenshot
+bindsym $mod+9 exec deepin-screenshot
 
 # kill focused window
 bindsym $mod+q kill
@@ -59,6 +59,10 @@ bindsym Mod1+c exec mate-terminal -e caja
 # start/stop VPN
 bindsym $mod+p exec "cat ~/Documents/.p | sudo -S vpn-on"
 bindsym $mod+Shift+p exec "cat ~/Documents/.p | sudo -S vpn-off"
+
+# move to scratchpad
+bindsym $mod+minus move scratchpad
+bindsym $mod+equal scratchpad show; floating toggle
 
 # change focus
 bindsym $mod+h focus left
