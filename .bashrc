@@ -135,6 +135,8 @@ export ATHAME_SHOW_MODE=0
 export VISUAL=vim
 export EDITOR="$VISUAL"
 
+umask 0022
+
 # if [ -z "$TMUX"  ] 
 # then
 #     tmux new -s main

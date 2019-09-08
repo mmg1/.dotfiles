@@ -34,6 +34,9 @@ floating_modifier $mod
 bindsym $mod+Return exec mate-terminal -e "tmux attach"
 bindsym $mod+Shift+Return exec mate-terminal
 
+# take screenshot
+bindsym $mod+o exec deepin-screenshot
+
 # kill focused window
 bindsym $mod+q kill
 
@@ -44,6 +47,10 @@ bindsym $mod+d exec dmenu_run
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
+# move to scratchpad
+bindsym $mod+minus move scratchpad
+bindsym $mod+equal scratchpad show; floating toggle
+
 # programs shortcuts
 bindsym Mod1+b exec firefox
 bindsym Mod1+s exec spotify
@@ -53,8 +60,11 @@ bindsym Mod1+v exec vmware
 bindsym Mod1+c exec mate-terminal -e caja
 
 # start HTB openvpn
-bindsym $mod+p exec "cat ~/Documents/.p | sudo -S openvpn /home/florian/Documents/HTB/artemishlr.ovpn"
-bindsym $mod+Shift+p exec "cat ~/Documents/.p | sudo -S pkill openvpn"
+bindsym $mod+6 exec "rdesktop -g 1920x1080 -u offsec -p G0CWsA41f7M 10.11.16.63"
+bindsym $mod+7 exec "cat ~/Documents/.p | sudo -S openvpn /home/florian/Documents/HTB/artemishlr.ovpn"
+bindsym $mod+8 exec "cat ~/Documents/.p | sudo -S openvpn /home/florian/Documents/HTB/artemishlr-fortress.ovpn"
+bindsym $mod+9 exec "cat ~/Documents/.p | sudo -S openvpn --cd /home/florian/Documents/PWK --config OS-57446-PWK.ovpn"
+bindsym $mod+Shift+p exec "cat ~/Documents/.p | sudo -S pkill -9 openvpn"
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
