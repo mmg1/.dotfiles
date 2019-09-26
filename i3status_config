@@ -7,6 +7,10 @@ general {
     color_bad = "#ff3333"
 }
 
+order += "ethernet eth0"
+order += "ethernet eth1"
+order += "ethernet tun0"
+order += "ethernet tap0"
 order += "net_rate"
 order += "sysdata"
 order += "diskdata"
@@ -34,13 +38,23 @@ process_status {
     cache_timeout = 2
 }
 
-wireless wlo1 {
-    format_up = " WiFi: %ip "
+ethernet eth0 {
+    format_up = " eth0: %ip "
     format_down = ""
 }
 
-ethernet ens12u1u4 {
-    format_up = " LAN: %ip "
+ethernet eth1 {
+    format_up = " eth1: %ip "
+    format_down = ""
+}
+
+ethernet tap0 {
+    format_up = " tap0: %ip "
+    format_down = ""
+}
+
+ethernet tun0 {
+    format_up = " tun0: %ip "
     format_down = ""
 }
 

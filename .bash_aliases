@@ -11,5 +11,3 @@ alias ta='tmux attach'
 alias tn='tmux new -s main'
 alias tx='pkill -USR1 tmux'
 alias u='umask 0022'
-
-alias autorecon='/home/florian/Documents/Tools/AutoRecon/autorecon.py'

@@ -52,7 +52,7 @@ bindsym $mod+minus move scratchpad
 bindsym $mod+equal scratchpad show; floating toggle
 
 # programs shortcuts
-bindsym Mod1+b exec firefox
+bindsym Mod1+b exec /snap/bin/brave
 bindsym Mod1+s exec spotify
 bindsym Mod1+d exec discord
 bindsym Mod1+i exec mate-terminal -e ranger
