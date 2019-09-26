@@ -33,6 +33,7 @@ then
     ln $cur/i3status_config $home_florian/.config/i3status/config
     gsettings set org.mate.session.required-components windowmanager "'i3'"
     gsettings set org.mate.session required-components-list "['windowmanager']"
+    gsettings set org.mate.interface gtk-decoration-layout ""
     echo "git clone https://github.com/arty-hlr/.dotfiles.git"
     echo -n 1 > $home_florian/current_stage
     exit
