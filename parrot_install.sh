@@ -11,6 +11,7 @@ rm $home_florian/.config/i3status/config
 ln $cur/i3status_config $home_florian/.config/i3status/config
 gsettings set org.mate.session.required-components windowmanager "'i3'"
 gsettings set org.mate.session required-components-list "['windowmanager']"
+gsettings set org.mate.interface gtk-decoration-layout ""
 rm $home_florian/.vimrc
 ln $cur/.vimrc $home_florian/.vimrc
 git clone https://github.com/VundleVim/Vundle.vim.git $home_florian/.vim/bundle/Vundle.vim
@@ -31,9 +32,12 @@ echo -e '[Desktop Entry]\nName=keyboard_setup\nExec=/bin/bash -c "test -f $HOME/
 xkbcomp $home_florian/.keymap.xkb $DISPLAY &> /dev/null
 rm $home_florian/.gdbinit
 ln $cur/.gdbinit $home_florian/.gdbinit
+sudo apt remove neovim
+sudo apt install tmux i3 ranger python3-dev py3status fonts-powerline deepin-screenshot rlwrap ncat vim mingw-w64 exploitdb
 sudo pip2 install pwntools
 sudo pip3 install --upgrade git+https://github.com/arthaud/python3-pwntools.git
-sudo apt install tmux i3
 git clone https://github.com/pwndbg/pwndbg $home_florian/pwndbg
+cd $home_florian/pwndbg
 $home_florian/pwndbg/setup.sh
+sudo updatedb
 echo "Reboot now"

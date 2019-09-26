@@ -57,7 +57,7 @@ set listchars=tab:\|\
 let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 let g:ycm_extra_conf_vim_data = ['&filetype']
-let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
+" let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
 let g:ycm_show_diagnostics_ui = 0
 
 "split navigations
@@ -88,5 +88,3 @@ let g:syntastic_quiet_messages = { "level" : "warnings"  }
 " let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes':   [],'passive_filetypes': []  }
 noremap <C-w>e :SyntasticCheck<CR>
 noremap <C-w>f :SyntasticToggleMode<CR>
-
-let g:livepreview_previewer = 'okular'
