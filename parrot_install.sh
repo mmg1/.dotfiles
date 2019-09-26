@@ -13,11 +13,12 @@ gsettings set org.mate.session.required-components windowmanager "'i3'"
 gsettings set org.mate.session required-components-list "['windowmanager']"
 rm $home_florian/.vimrc
 ln $cur/.vimrc $home_florian/.vimrc
-# sudo $home_florian/.vim/bundle/YouCompleteMe/install.py --clangd-completer 
-rm $home_florian/.vim/.ycm_extra_conf.py
-ln $cur/.ycm_extra_conf.py $home_florian/.vim/.ycm_extra_conf.py
+git clone https://github.com/VundleVim/Vundle.vim.git $home_florian/.vim/bundle/Vundle.vim
+vim +PluginInstall +qall
 rm $home_florian/.tmux.conf
 ln $cur/.tmux.conf $home_florian/.tmux.conf
+git clone https://github.com/tmux-plugins/tpm $home_florian/.tmux/plugins/tpm
+git clone https://github.com/jimeh/tmux-themepack.git $home_florian/.tmux-themepack
 rm $home_florian/.bashrc
 ln $cur/.bashrc $home_florian/.bashrc
 rm $home_florian/.bash_aliases
@@ -30,3 +31,9 @@ echo -e '[Desktop Entry]\nName=keyboard_setup\nExec=/bin/bash -c "test -f $HOME/
 xkbcomp $home_florian/.keymap.xkb $DISPLAY &> /dev/null
 rm $home_florian/.gdbinit
 ln $cur/.gdbinit $home_florian/.gdbinit
+sudo pip2 install pwntools
+sudo pip3 install --upgrade git+https://github.com/arthaud/python3-pwntools.git
+sudo apt install tmux i3
+git clone https://github.com/pwndbg/pwndbg $home_florian/pwndbg
+$home_florian/pwndbg/setup.sh
+echo "Reboot now"
