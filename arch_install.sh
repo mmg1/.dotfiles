@@ -99,8 +99,6 @@ then
     sudo -u florian git clone https://github.com/tmux-plugins/tpm $home_florian/.tmux/plugins/tpm
     sudo -u florian git clone https://github.com/jimeh/tmux-themepack.git $home_florian/.tmux-themepack
     sudo -u florian ln $cur/.tmux.conf $home_florian/.tmux.conf
-    # athame
-    sudo -u florian yay -S readline-athame-git
     systemctl enable fstrim.timer
     echo -n 5 > $home_florian/current_stage
     echo "Reboot now"
