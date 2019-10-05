@@ -33,7 +33,7 @@ xkbcomp $home_florian/.keymap.xkb $DISPLAY &> /dev/null
 rm $home_florian/.gdbinit
 ln $cur/.gdbinit $home_florian/.gdbinit
 sudo apt remove neovim
-sudo apt install tmux i3 ranger python3-dev py3status fonts-powerline deepin-screenshot rlwrap ncat vim mingw-w64 exploitdb
+sudo apt install tmux i3 ranger python3-dev py3status fonts-powerline deepin-screenshot rlwrap ncat vim mingw-w64 exploitdb python3-pyftpdlib markdown python-xlrd rdesktop
 sudo pip2 install pwntools
 sudo pip3 install --upgrade git+https://github.com/arthaud/python3-pwntools.git
 git clone https://github.com/pwndbg/pwndbg $home_florian/pwndbg

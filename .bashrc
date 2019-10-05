@@ -137,14 +137,12 @@ export EDITOR="$VISUAL"
 
 umask 0022
 
-# if [ -z "$TMUX"  ] 
-# then
-#     tmux new -s main
-#     # ( tmux attach && tmux kill-session -t 0 ) || exec tmux new -s main
-# else
-#     tmux attach
-# fi
-# if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-#     tmux kill-session -t 0
-#     tmux new -A -s main && exit;
+# export TMUX_LOGGING=/home/florian/.tmux/plugins/tmux-logging
+# if [ -n "$TMUX_PANE" ] && [ "$TMUX_PANE_AUTORUN" != "0" ]; then
+#   # set TMUX_LOGGING to the path of your tmux-logging installation.
+#   $TMUX_LOGGING/scripts/toggle_logging.sh
+
+#   # Prevent autocommand in subshells. We only want the top shell within a
+#   # tmux pane to run these commands.
+#   export TMUX_PANE_AUTORUN=0
 # fi

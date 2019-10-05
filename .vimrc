@@ -22,6 +22,7 @@ Plugin 'tpope/vim-eunuch'
 Plugin 'tpope/vim-obsession'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'jlanzarotta/bufexplorer'
+Plugin 'JamshedVesuna/vim-markdown-preview'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
