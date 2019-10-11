@@ -24,6 +24,7 @@ Plugin 'tpope/vim-unimpaired'
 Plugin 'lervag/vimtex'
 Plugin 'xuhdev/vim-latex-live-preview'
 Plugin 'jlanzarotta/bufexplorer'
+Plugin 'JamshedVesuna/vim-markdown-preview'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -92,3 +93,4 @@ noremap <C-w>e :SyntasticCheck<CR>
 noremap <C-w>f :SyntasticToggleMode<CR>
 
 let g:livepreview_previewer = 'okular'
+let vim_markdown_preview_browser='firefox'
