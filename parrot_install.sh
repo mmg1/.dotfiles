@@ -3,6 +3,7 @@
 cur=/home/florian/.dotfiles
 home_florian=/home/florian
 
+sudo apt update && sudo apt upgrade
 mkdir -p $home_florian/.config/i3
 mkdir -p $home_florian/.config/i3status
 rm $home_florian/.config/i3/config
