@@ -35,7 +35,9 @@ bindsym $mod+Return exec mate-terminal -e "tmux attach"
 bindsym $mod+Shift+Return exec mate-terminal
 
 # take screenshot
-bindsym $mod+o exec deepin-screenshot
+bindsym $mod+o exec mate-screenshot
+bindsym $mod+p exec "mate-screenshot -a"
+bindsym $mod+i exec "mate-screenshot -i"
 
 # kill focused window
 bindsym $mod+q kill
@@ -47,6 +49,12 @@ bindsym $mod+d exec dmenu_run
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
+# start copyq server
+exec copyq
+
+# copyq menu
+bindsym Mod1+c exec "copyq menu"
+
 # move to scratchpad
 bindsym $mod+minus move scratchpad
 bindsym $mod+equal scratchpad show; floating toggle
@@ -54,7 +62,6 @@ bindsym $mod+equal scratchpad show; floating toggle
 # programs shortcuts
 bindsym Mod1+b exec firefox
 bindsym Mod1+i exec mate-terminal -e ranger
-bindsym Mod1+c exec mate-terminal -e caja
 
 # start HTB openvpn
 bindsym $mod+6 exec "rdesktop -g 1920x1080 -u offsec -p G0CWsA41f7M 10.11.16.63"
