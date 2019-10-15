@@ -41,4 +41,6 @@ git clone https://github.com/pwndbg/pwndbg $home_florian/pwndbg
 cd $home_florian/pwndbg
 $home_florian/pwndbg/setup.sh
 sudo updatedb
-echo "Reboot now"
+ssh-keygen -t rsa -b 4096 -C "florian@parrot"
+ssh-add ~/.ssh/id_rsa
+echo "Reboot now, don't forget to add your public key to blackarch's authorized_keys"
