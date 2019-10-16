@@ -7,7 +7,12 @@
 192.168.88.128	linux.lpe
 192.168.88.131	windows.lpe
 
-10.10.10.6	popcorn.htb
+10.10.10.145 player.htb dev.player.htb chat.player.htb staging.player.htb backup.player.htb
+10.10.10.144 re.htb
+10.10.10.157 wall.htb
+10.10.10.154 bankrobber.htb
+10.10.10.158 json.htb
+10.10.10.151 sniper.htb
 
 # The following lines are desirable for IPv6 capable hosts
 ::1     localhost ip6-localhost ip6-loopback

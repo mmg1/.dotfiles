@@ -65,6 +65,7 @@ bindsym Mod1+i exec mate-terminal -e ranger
 
 # start HTB openvpn
 bindsym $mod+6 exec "rdesktop -g 1920x1080 -u offsec -p G0CWsA41f7M 10.11.16.63"
+bindsym $mod+5 exec "rdesktop -g 1920x1080 -u admin -p lab 192.168.36.111"
 bindsym $mod+7 exec "cat ~/Documents/.p | sudo -S openvpn /home/florian/Documents/HTB/artemishlr.ovpn"
 bindsym $mod+8 exec "cat ~/Documents/.p | sudo -S openvpn /home/florian/Documents/HTB/artemishlr-fortress.ovpn"
 bindsym $mod+9 exec "cat ~/Documents/.p | sudo -S openvpn --cd /home/florian/Documents/PWK --config OS-57446-PWK.ovpn"
