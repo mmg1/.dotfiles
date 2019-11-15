@@ -72,7 +72,7 @@ battery_level {
 
 clock {
     format = " [\?color=#56b3d9 {Europe/Paris}] "
-    format_time = "%d/%m/%d %H:%M"
+    format_time = "%d/%m/%y %H:%M"
 }
 
 diskdata {
