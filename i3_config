@@ -133,36 +133,52 @@ set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+set $ws11 "11"
+set $ws12 "12"
 
 # switch to workspace
 bindsym Control+Mod1+j workspace $ws1
 bindsym Control+Mod1+k workspace $ws2
 bindsym Control+Mod1+l workspace $ws3
 bindsym Control+Mod1+semicolon workspace $ws4
-bindsym Control+Mod1+u workspace $ws5
-bindsym Control+Mod1+i workspace $ws6
-bindsym Control+Mod1+o workspace $ws7
-bindsym Control+Mod1+p workspace $ws8
+bindsym Control+Mod1+apostrophe workspace $ws5
+bindsym Control+Mod1+backslash workspace $ws6
+bindsym Control+Mod1+i workspace $ws7
+bindsym Control+Mod1+u workspace $ws8
+bindsym Control+Mod1+o workspace $ws9
+bindsym Control+Mod1+p workspace $ws10
+bindsym Control+Mod1+leftbracket workspace $ws11
+bindsym Control+Mod1+rightbracket workspace $ws12
 
 # move focused container to workspace
 bindsym Shift+Mod1+j move container to workspace $ws1
 bindsym Shift+Mod1+k move container to workspace $ws2
 bindsym Shift+Mod1+l move container to workspace $ws3
 bindsym Shift+Mod1+semicolon move container to workspace $ws4
-bindsym Shift+Mod1+u move container to workspace $ws5
-bindsym Shift+Mod1+i move container to workspace $ws6
-bindsym Shift+Mod1+o move container to workspace $ws7
-bindsym Shift+Mod1+p move container to workspace $ws8
+bindsym Shift+Mod1+apostrophe move container to workspace $ws5
+bindsym Shift+Mod1+backslash move container to workspace $ws6
+bindsym Shift+Mod1+i move container to workspace $ws7
+bindsym Shift+Mod1+u move container to workspace $ws8
+bindsym Shift+Mod1+o move container to workspace $ws9
+bindsym Shift+Mod1+p move container to workspace $ws10
+bindsym Shift+Mod1+leftbracket move container to workspace $ws11
+bindsym Shift+Mod1+rightbracket move container to workspace $ws12
 
 # move focused container to workspace and switch to it
-bindsym Control+Shift+Mod1+j move container to workspace $ws1; workspace $ws1
-bindsym Control+Shift+Mod1+k move container to workspace $ws2; workspace $ws2
-bindsym Control+Shift+Mod1+l move container to workspace $ws3; workspace $ws3
-bindsym Control+Shift+Mod1+semicolon move container to workspace $ws4; workspace $ws4
-bindsym Control+Shift+Mod1+u move container to workspace $ws5; workspace $ws5
-bindsym Control+Shift+Mod1+i move container to workspace $ws6; workspace $ws6
-bindsym Control+Shift+Mod1+o move container to workspace $ws7; workspace $ws7
-bindsym Control+Shift+Mod1+p move container to workspace $ws8; workspace $ws8
+bindsym Control+Shift+Mod1+j workspace $ws1
+bindsym Control+Shift+Mod1+k workspace $ws2
+bindsym Control+Shift+Mod1+l workspace $ws3
+bindsym Control+Shift+Mod1+semicolon workspace $ws4
+bindsym Control+Shift+Mod1+apostrophe workspace $ws5
+bindsym Control+Shift+Mod1+backslash workspace $ws6
+bindsym Control+Shift+Mod1+i workspace $ws7
+bindsym Control+Shift+Mod1+u workspace $ws8
+bindsym Control+Shift+Mod1+o workspace $ws9
+bindsym Control+Shift+Mod1+p workspace $ws10
+bindsym Control+Shift+Mod1+leftbracket workspace $ws11
+bindsym Control+Shift+Mod1+rightbracket workspace $ws12
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
