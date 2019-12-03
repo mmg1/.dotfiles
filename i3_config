@@ -149,8 +149,8 @@ bindsym Control+Mod1+i workspace $ws7
 bindsym Control+Mod1+u workspace $ws8
 bindsym Control+Mod1+o workspace $ws9
 bindsym Control+Mod1+p workspace $ws10
-bindsym Control+Mod1+leftbracket workspace $ws11
-bindsym Control+Mod1+rightbracket workspace $ws12
+bindsym Control+Mod1+bracketleft workspace $ws11
+bindsym Control+Mod1+bracketright workspace $ws12
 
 # move focused container to workspace
 bindsym Shift+Mod1+j move container to workspace $ws1
@@ -163,8 +163,8 @@ bindsym Shift+Mod1+i move container to workspace $ws7
 bindsym Shift+Mod1+u move container to workspace $ws8
 bindsym Shift+Mod1+o move container to workspace $ws9
 bindsym Shift+Mod1+p move container to workspace $ws10
-bindsym Shift+Mod1+leftbracket move container to workspace $ws11
-bindsym Shift+Mod1+rightbracket move container to workspace $ws12
+bindsym Shift+Mod1+bracketleft move container to workspace $ws11
+bindsym Shift+Mod1+bracketright move container to workspace $ws12
 
 # move focused container to workspace and switch to it
 bindsym Control+Shift+Mod1+j workspace $ws1
@@ -177,8 +177,8 @@ bindsym Control+Shift+Mod1+i workspace $ws7
 bindsym Control+Shift+Mod1+u workspace $ws8
 bindsym Control+Shift+Mod1+o workspace $ws9
 bindsym Control+Shift+Mod1+p workspace $ws10
-bindsym Control+Shift+Mod1+leftbracket workspace $ws11
-bindsym Control+Shift+Mod1+rightbracket workspace $ws12
+bindsym Control+Shift+Mod1+bracketleft workspace $ws11
+bindsym Control+Shift+Mod1+bracketright workspace $ws12
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
