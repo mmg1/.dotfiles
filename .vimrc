@@ -73,10 +73,10 @@ set foldmethod=indent
 set foldlevel=99
 " Enable folding with the spacebar
 nnoremap <space> za
-" Enable yanking/pasting to clipboard
+" Enable yanking/pasting to/from clipboard
 vnoremap <C-y> "yy <BAR> :call system('xclip -sel c', @y)<CR>
-noremap <C-p> :r !xclip -o -sel clipboard<CR>o<ESC>
-inoremap <C-p> <C-r>= system('xclip -o -sel c')<CR>
+" noremap <C-p> :r !xclip -o -sel clipboard<CR>o<ESC>
+" inoremap <C-p> <C-r>= system('xclip -o -sel c')<CR>
 
 " NERDtree toggle
 nnoremap <C-\> :NERDTreeToggle<CR>
@@ -95,3 +95,4 @@ noremap <C-w>f :SyntasticToggleMode<CR>
 
 let g:livepreview_previewer = 'okular'
 let vim_markdown_preview_browser='firefox'
+let vim_markdown_preview_use_xdg_open=1
