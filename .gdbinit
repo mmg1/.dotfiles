@@ -1,3 +1,3 @@
 set disassembly-flavor intel
-# source /usr/share/peda/peda.py
-source /usr/share/pwndbg/gdbinit.py
+source /usr/share/peda/peda.py
+# source /usr/share/pwndbg/gdbinit.py
