@@ -130,12 +130,8 @@ fi
 if [ -d $HOME/bin ]; then
     export PATH=$HOME/bin:$PATH
 fi
-export PYTHONPATH=$HOME/Documents/Number-Theory-Python-master/:/usr/lib/python3.7/site-packages/:$PYTHONPATH
-export ATHAME_SHOW_MODE=0
 export VISUAL=vim
 export EDITOR="$VISUAL"
 
-# if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-#     tmux kill-session -t 0
-#     tmux new -A -s main && exit;
-# fi
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"

@@ -93,9 +93,9 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # move focused window to monitor
-bindsym $mod+Shift+n move container to output right
-bindsym $mod+n focus output right
-bindsym $mod+Control+n move container to output right; focus output right
+bindsym Mod1+Shift+n move container to output right
+bindsym Mod1+Control+n focus output right
+bindsym Mod1+Control+Shift+n move container to output right; focus output right
 
 # split in horizontal orientation
 bindsym $mod+v split h
