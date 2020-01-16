@@ -25,6 +25,7 @@ Plugin 'lervag/vimtex'
 Plugin 'xuhdev/vim-latex-live-preview'
 Plugin 'jlanzarotta/bufexplorer'
 Plugin 'JamshedVesuna/vim-markdown-preview'
+" Plugin 'fatih/vim-go'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

@@ -94,7 +94,7 @@ then
     sudo -u florian ln $cur/.vimrc $home_florian/.vimrc
     sudo -u florian git clone https://github.com/VundleVim/Vundle.vim.git $home_florian/.vim/bundle/Vundle.vim
     sudo -u florian vim +PluginInstall +qall
-    $home_florian/.vim/bundle/YouCompleteMe/install.py --clangd-completer 
+    $home_florian/.vim/bundle/YouCompleteMe/install.py --clangd-completer --go-completer
     sudo -u florian ln $cur/.ycm_extra_conf.py $home_florian/.vim/.ycm_extra_conf.py
     # .tmux.conf
     sudo -u florian git clone https://github.com/tmux-plugins/tpm $home_florian/.tmux/plugins/tpm
