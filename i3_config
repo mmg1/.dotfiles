@@ -58,7 +58,7 @@ bindsym Mod1+s exec spotify
 bindsym Mod1+d exec discord
 bindsym Mod1+i exec mate-terminal -e "ranger"
 bindsym Mod1+v exec vmware
-bindsym Mod1+o exec dolphin
+bindsym Mod1+o exec nemo
 
 # start/stop VPN
 bindsym $mod+9 exec "cat ~/Documents/.p | sudo -S vpn-on"
